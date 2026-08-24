@@ -1,0 +1,13 @@
+// Page layout shell: container, main content area.
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--space-3);
+}
+
+#main {
+  padding-block: var(--space-3);
+  min-height: 60vh;
+}
