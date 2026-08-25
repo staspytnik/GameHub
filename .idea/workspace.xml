@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc4bb706-8ab2-4b91-80c4-722d6fe81936" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/library.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/library.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/add-game-icon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/library-page-sections/library-heading.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/library-page-sections/library-heading.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +34,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "git-widget-placeholder": "feature/library",
     "javascript.preferred.runtime.type.id": "node",
-    "last_opened_file_path": "D:/GameHub-goit-js/GameHub",
+    "last_opened_file_path": "D:/GameHub-goit-js/GameHub/public",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -41,6 +43,14 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GameHub-goit-js\GameHub\public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GameHub-goit-js\GameHub\public\images" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -56,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1787588795801</updated>
       <workItem from="1787588797355" duration="249000" />
-      <workItem from="1787646681770" duration="1242000" />
+      <workItem from="1787646681770" duration="3041000" />
     </task>
     <servers />
   </component>
