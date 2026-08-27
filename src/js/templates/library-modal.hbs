@@ -1,0 +1,95 @@
+<div class="modal-window__header">
+    <h2 class="modal-window__title">Add Game</h2>
+
+    <button class="modal-window__close" data-modal-close type="button" aria-label="Close">
+        ×
+    </button>
+</div>
+
+<form class="modal-window__form">
+    <div class="modal-window__field modal-window__field--full">
+        <label class="modal-window__label" for="game-name">
+            Game name
+        </label>
+
+        <input
+                class="modal-window__input"
+                id="game-name"
+                type="text"
+                placeholder="e.g. Hollow Knight"
+        />
+    </div>
+
+    <div class="modal-window__row">
+        <div class="modal-window__field">
+            <label class="modal-window__label" for="genre">
+                Genre
+            </label>
+
+            <select class="modal-window__select" id="genre">
+                <option value="">Select genre</option>
+                <option value="action">Action</option>
+                <option value="adventure">Adventure</option>
+                <option value="rpg">RPG</option>
+                <option value="strategy">Strategy</option>
+                <option value="simulation">Simulation</option>
+                <option value="indie">Indie</option>
+                <option value="strategy">Strategy</option>
+                <option value="sports">Sports</option>
+            </select>
+        </div>
+
+        <div class="modal-window__field">
+            <label class="modal-window__label" for="release-year">
+                Release year
+            </label>
+
+            <input
+                    class="modal-window__input"
+                    id="release-year"
+                    type="number"
+                    placeholder="2024"
+            />
+        </div>
+    </div>
+
+    <div class="modal-window__field modal-window__field--full">
+        <label class="modal-window__label" for="status">
+            Status
+        </label>
+
+        <select class="modal-window__select" id="status">
+            <option value="want-to-play">Want to Play</option>
+            <option value="playing">Playing</option>
+            <option value="completed">Completed</option>
+        </select>
+    </div>
+
+    <div class="modal-window__field modal-window__field--full">
+        <label class="modal-window__label" for="description">
+            Description
+        </label>
+
+        <textarea
+                class="modal-window__textarea"
+                id="description"
+                placeholder="Short description..."
+        ></textarea>
+    </div>
+
+    <div class="modal-window__actions">
+        <button
+                class="library__button library__button--cancel"
+                type="button"
+        >
+            Cancel
+        </button>
+
+        <button
+                class="library__button"
+                type="submit"
+        >
+            Save game
+        </button>
+    </div>
+</form>
