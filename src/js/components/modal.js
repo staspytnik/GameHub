@@ -11,8 +11,6 @@ const modalCloseDataAttr = '[data-modal-close]'
 const modalOverlay = document.createElement('div')
 modalOverlay.classList.add('modal-overlay')
 
-let modalClose;
-
 export function openModal(html) {
   // TODO: implement modal rendering and open state.
     if (!modalOverlay.hasAttribute(modalDataAttribute)) {
@@ -26,20 +24,19 @@ export function openModal(html) {
         modalOverlay.appendChild(modalWindow)
         document.body.appendChild(modalOverlay)
 
-        modalClose = modalWindow.querySelector(modalCloseDataAttr)
-
-        modalClose.addEventListener('click', closeModal)
+        modalOverlay.addEventListener('click', closeModal)
     }
 }
 
 /**
  * Close the currently open modal.
  */
-export function closeModal() {
+export function closeModal(event) {
   // TODO: implement modal close/cleanup.
-    modalClose.removeEventListener('click', closeModal)
-    modalClose = null;
-    modalOverlay.innerHTML = ''
-    modalOverlay.removeAttribute(modalDataAttribute)
-    modalOverlay.remove()
+    if (event.target.closest(modalCloseDataAttr)) {
+        modalOverlay.removeEventListener('click', closeModal)
+        modalOverlay.innerHTML = ''
+        modalOverlay.removeAttribute(modalDataAttribute)
+        modalOverlay.remove()
+    }
 }
