@@ -1,15 +1,20 @@
 // Modal component: open/close a dialog overlay.
 // Full modal UI/content is implemented in a later task.
 
+import {FormValidator} from "../services/validation.js";
+
 /**
  * Open the modal with the given content.
  * @param {string} html
  */
+
 const modalDataAttribute = 'data-modal'
 const modalCloseDataAttr = '[data-modal-close]'
 
 const modalOverlay = document.createElement('div')
 modalOverlay.classList.add('modal-overlay')
+
+let modalForm;
 
 export function openModal(html) {
   // TODO: implement modal rendering and open state.
@@ -25,6 +30,9 @@ export function openModal(html) {
         document.body.appendChild(modalOverlay)
 
         modalOverlay.addEventListener('click', closeModal)
+
+        modalForm = modalWindow.querySelector('[data-modal-form]')
+        new FormValidator(modalForm)
 
         requestAnimationFrame(() => {
             modalOverlay.classList.add('modal-overlay--active')

@@ -6,7 +6,7 @@
     </button>
 </div>
 
-<form class="modal-window__form">
+<form novalidate data-modal-form class="modal-window__form">
     <div class="modal-window__field modal-window__field--full">
         <label class="modal-window__label" for="game-name">
             Game name
@@ -17,6 +17,7 @@
                 id="game-name"
                 type="text"
                 placeholder="e.g. Hollow Knight"
+                required
         />
     </div>
 
@@ -26,7 +27,7 @@
                 Genre
             </label>
 
-            <select class="modal-window__select" id="genre">
+            <select required class="modal-window__select" id="genre">
                 <option value="">Select genre</option>
                 <option value="action">Action</option>
                 <option value="adventure">Adventure</option>
@@ -49,6 +50,8 @@
                     id="release-year"
                     type="number"
                     placeholder="2024"
+                    required
+                    data-validation="game-year"
             />
         </div>
     </div>
@@ -58,7 +61,7 @@
             Status
         </label>
 
-        <select class="modal-window__select" id="status">
+        <select required class="modal-window__select" id="status">
             <option value="want-to-play">Want to Play</option>
             <option value="playing">Playing</option>
             <option value="completed">Completed</option>
