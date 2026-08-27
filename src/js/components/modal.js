@@ -25,6 +25,10 @@ export function openModal(html) {
         document.body.appendChild(modalOverlay)
 
         modalOverlay.addEventListener('click', closeModal)
+
+        requestAnimationFrame(() => {
+            modalOverlay.classList.add('modal-overlay--active')
+        })
     }
 }
 
@@ -35,8 +39,12 @@ export function closeModal(event) {
   // TODO: implement modal close/cleanup.
     if (event.target.closest(modalCloseDataAttr)) {
         modalOverlay.removeEventListener('click', closeModal)
-        modalOverlay.innerHTML = ''
-        modalOverlay.removeAttribute(modalDataAttribute)
-        modalOverlay.remove()
+        modalOverlay.classList.remove('modal-overlay--active')
+
+        setTimeout(() => {
+            modalOverlay.innerHTML = ''
+            modalOverlay.removeAttribute(modalDataAttribute)
+            modalOverlay.remove()
+        }, 400)
     }
 }
