@@ -223,3 +223,10 @@
     padding: var(--space-2);
   }
 }
+.form-error {
+  display: block;
+  margin-top: 6px;
+  color: #ff4d4f;
+  font-size: 12px;
+  line-height: 1.4;
+}

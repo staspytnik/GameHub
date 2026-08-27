@@ -122,7 +122,7 @@ export class FormValidator {
 
             if (
                 !Number.isInteger(year) ||
-                year <= FormValidator.FIRST_GAME_YEAR
+                year < FormValidator.FIRST_GAME_YEAR
             ) {
                 return `Рік повинен бути більшим за ${FormValidator.FIRST_GAME_YEAR}`;
             }

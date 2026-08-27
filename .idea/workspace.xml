@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cc4bb706-8ab2-4b91-80c4-722d6fe81936" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/components/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/templates/library-modal.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/templates/library-modal.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/services/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/services/validation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scss/sections/modal.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/sections/modal.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +72,7 @@
       <workItem from="1787673220228" duration="1950000" />
       <workItem from="1787731573616" duration="42000" />
       <workItem from="1787756722546" duration="4911000" />
-      <workItem from="1787817803658" duration="6377000" />
+      <workItem from="1787817803658" duration="6749000" />
     </task>
     <servers />
   </component>
