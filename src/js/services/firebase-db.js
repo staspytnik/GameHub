@@ -17,5 +17,21 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+const URL = 'https://gamehub---library-default-rtdb.europe-west1.firebasedatabase.app/library.json'
+
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
+
+export async function postGameData(data) {
+    try {
+        const response = await fetch(URL, {
+            method: 'POST',
+            body: JSON.stringify(data),
+        })
+        const result = await response.json();
+
+        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
+}
