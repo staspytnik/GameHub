@@ -1,0 +1,169 @@
+.games {
+  &__title--wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 108px;
+    justify-content: space-between;
+    @media (min-width: 768px) {
+      height: 50px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    @media (min-width: 1280px) {
+    }
+  }
+  &__title {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 140%;
+    color: var(--color-grey-96);
+    @media (min-width: 768px) {
+      padding-right: 383px;
+    }
+    @media (min-width: 1280px) {
+      padding-right: 895px;
+    }
+  }
+  &__subtitle {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 143%;
+    color: var(--color-grey-61);
+    @media (min-width: 768px) {
+    }
+    @media (min-width: 1280px) {
+    }
+  }
+  &__search {
+    border: 1px solid var(--color-blue-18);
+    border-radius: 12px;
+    width: 224px;
+    height: 42px;
+    background: var(--color-blue-11);
+    display: flex;
+    align-items: center;
+    @media (min-width: 768px) {
+    }
+    @media (min-width: 1280px) {
+    }
+  }
+  &__svg {
+    margin: 13px 9px 13px 12px;
+  }
+  &__input {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--color-grey-61);
+    background: none;
+    border: none;
+    outline: none;
+    @media (min-width: 768px) {
+    }
+    @media (min-width: 1280px) {
+    }
+  }
+  &__input::placeholder {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--color-grey-61);
+    @media (min-width: 768px) {
+    }
+    @media (min-width: 1280px) {
+    }
+  }
+  &__list--categories {
+    display: flex;
+    margin: 24px 0;
+    flex-wrap: wrap;
+    @media (min-width: 768px) {
+    }
+    @media (min-width: 1280px) {
+    }
+  }
+
+  &__items--categories {
+    margin: 4px;
+    @media (min-width: 768px) {
+    }
+    @media (min-width: 1280px) {
+    }
+  }
+
+  &__buttons {
+    border: 1px solid var(--color-blue-18);
+    border-radius: 12px;
+    padding: 8px 16px;
+    background: var(--color-blue-11);
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 143%;
+    text-align: center;
+    color: var(--color-grey-61);
+    cursor: pointer;
+    @media (min-width: 768px) {
+    }
+    @media (min-width: 1280px) {
+    }
+
+    &.chosen {
+      box-shadow: 0 0 14px 0 rgba(139, 92, 246, 0.35);
+      background: var(--color-violet-66);
+      color: var(--color-white-solid);
+      @media (min-width: 768px) {
+      }
+      @media (min-width: 1280px) {
+      }
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      @media (min-width: 768px) {
+      }
+      @media (min-width: 1280px) {
+      }
+    }
+  }
+  &__card {
+    border: 1px solid var(--color-blue-18);
+    border-radius: 12px;
+    height: 285px;
+    background: var(--color-blue-11);
+    background-color: indianred;
+    @media (min-width: 768px) {
+      height: 364px;
+    }
+    @media (min-width: 1280px) {
+      height: 454px;
+    }
+  }
+  &__list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media (min-width: 1280px) {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+  &__navigation {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    padding: 30px 16px 0 16px;
+    @media (min-width: 768px) {
+      padding: 48px 208px 0 208px;
+    }
+    @media (min-width: 1280px) {
+      padding: 48px 464px 0 464px;
+    }
+  }
+}

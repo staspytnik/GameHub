@@ -1,7 +1,7 @@
 // RAWG Video Games Database API client.
 // https://api.rawg.io/docs/
 
-const RAWG_BASE_URL = 'https://api.rawg.io/api';
+const RAWG_BASE_URL = "https://api.rawg.io/api";
 const RAWG_API_KEY = import.meta.env.VITE_RAWG_API_KEY;
 
 /**
@@ -33,6 +33,9 @@ export async function fetchGameScreenshots(id) {
  */
 export async function fetchGenres() {
   // TODO: implement request to `${RAWG_BASE_URL}/genres`
+  const response = await fetch(`${RAWG_BASE_URL}/genres?key=${RAWG_API_KEY}`);
+  const genre = await response.json();
+  return genre.results;
 }
 
 /**

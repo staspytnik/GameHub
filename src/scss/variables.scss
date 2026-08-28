@@ -14,7 +14,8 @@
   --color-warning: #f59e0b;
 
   /* Font family */
-  --font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-family-base: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
 
   /* Font sizes */
   --font-size-xs: 0.75rem;
@@ -50,4 +51,37 @@
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
   --transition-slow: 400ms ease;
+
+  /* colors */
+  --color-white-solid: #fff;
+  --color-grey-61: #9696a3;
+  --color-orange-50: #ffba00;
+  --color-blue-6: #0d0d12;
+  --color-blue-6-850: rgba(13, 13, 18, 0.85);
+  --color-blue-18: #292934;
+  --color-violet-66: #8b5cf6;
+  --color-grey-96: #f5f5f7;
+  --color-violet-66-120: rgba(139, 92, 246, 0.12);
+  --color-violet-76: #a78bfa;
+  --color-blue-6-750: rgba(13, 13, 18, 0.75);
+  --color-blue-6-200: rgba(13, 13, 18, 0.2);
+  --color-blue-6-0: rgba(13, 13, 18, 0);
+  --color-blue-6-400: rgba(13, 13, 18, 0.4);
+  --color-violet-66-150: rgba(139, 92, 246, 0.15);
+  --color-violet-66-300: rgba(139, 92, 246, 0.3);
+  --color-white--80: rgba(255, 255, 255, 0.08);
+  --color-white--120: rgba(255, 255, 255, 0.12);
+  --color-black--750: rgba(0, 0, 0, 0.75);
+  --color-black--0: rgba(0, 0, 0, 0);
+  --color-white--500: rgba(255, 255, 255, 0.5);
+  --color-blue-11: #17171f;
+  --color-blue-11-700: rgba(23, 23, 31, 0.7);
+  --color-blue-11-0: rgba(23, 23, 31, 0);
+  --color-orange-50-2: #ffb900;
+  --color-white--100: rgba(255, 255, 255, 0.1);
+  --color-blue-15: #20202a;
+  --color-black--500: rgba(0, 0, 0, 0.5);
+  --color-white--600: rgba(255, 255, 255, 0.6);
+
+  --font-family: "Inter", sans-serif;
 }
