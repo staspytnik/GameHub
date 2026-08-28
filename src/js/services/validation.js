@@ -1,3 +1,5 @@
+import {formatData} from "./formatData.js";
+
 export class FormValidator {
     static FIRST_GAME_YEAR = 1972;
 
@@ -32,6 +34,7 @@ export class FormValidator {
         }
 
         console.log('Form is valid');
+        formatData(this.form)
     };
 
     validate() {
