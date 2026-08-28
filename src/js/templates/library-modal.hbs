@@ -18,6 +18,7 @@
                 type="text"
                 placeholder="e.g. Hollow Knight"
                 required
+                name="name"
         />
     </div>
 
@@ -27,7 +28,7 @@
                 Genre
             </label>
 
-            <select required class="modal-window__select" id="genre">
+            <select name="genre" required class="modal-window__select" id="genre">
                 <option value="">Select genre</option>
                 <option value="action">Action</option>
                 <option value="adventure">Adventure</option>
@@ -52,6 +53,7 @@
                     placeholder="2024"
                     required
                     data-validation="game-year"
+                    name="year"
             />
         </div>
     </div>
@@ -61,7 +63,7 @@
             Status
         </label>
 
-        <select required class="modal-window__select" id="status">
+        <select name="status" required class="modal-window__select" id="status">
             <option value="want-to-play">Want to Play</option>
             <option value="playing">Playing</option>
             <option value="completed">Completed</option>
@@ -77,6 +79,7 @@
                 class="modal-window__textarea"
                 id="description"
                 placeholder="Short description..."
+                name="description"
         ></textarea>
     </div>
 
