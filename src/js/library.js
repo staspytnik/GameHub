@@ -1,6 +1,7 @@
 import {openModal} from "./components/modal.js";
 import modalTemplate from './templates/library-modal.hbs?raw'
 import {getGamesData} from "./services/firebase-db.js";
+import placehplderImage from '../../public/images/card-image-placeholder.png'
 
 const libraryAddGameButton = document.querySelector('.library__button')
 
@@ -19,7 +20,7 @@ const renderGames = (data) => {
         cardElement.innerHTML = `
             <div class="game-card__cover">
                 <img
-                  src="#"
+                  src="${placehplderImage}"
                   alt="game cover"
                 />
               </div>
