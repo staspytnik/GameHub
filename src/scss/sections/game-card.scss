@@ -2,4 +2,116 @@
 // TODO: implement alongside js/components/game-card.js.
 
 .game-card {
+    border: 1px solid var(--color-surface-elevated);
+    border-radius: 12px;
+    width: 152px;
+    height: 267px;
+    background-color: #20202a;
+    overflow: hidden;
+
+    &__image {
+        width: 150px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    &__header {
+        position: relative;
+    }
+
+    &__likeBtn {
+        border-radius: 33554400px;
+        width: 24px;
+        height: 24px;
+        background-color: #060505ad;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    &__platforms {
+        gap: 2px;
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: center;
+    }
+
+    &__platform {
+        min-width: 34px;
+        font-weight: 600;
+        font-size: 8px;
+        line-height: 150%;
+        color: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    &__overflow {
+        position: absolute;
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        right: 0;
+        background: linear-gradient(0deg, #0d0d12 0%, rgba(13, 13, 18, 0) 50%, rgba(13, 13, 18, 0) 100%);
+    }
+
+    &__body {
+        padding: 7px;
+        width: 150px;
+        height: 66px;
+    }
+
+    &__title {
+        font-family: var(--font-family);
+        font-weight: 600;
+        font-size: 10px;
+        line-height: 125%;
+        color: var(--color-grey-96);
+    }
+
+    &__description {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 150%;
+        color: var(--color-text-secondary);
+    }
+
+    &__genre {
+        font-size: 7px;
+        display: flex;
+        gap: 3px;
+    }
+
+    &__meta {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__released {
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 150%;
+        color: #9696a3;
+    }
+
+    &__rating {
+        font-family: var(--font-family);
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 143%;
+        color: var(--color-orange-50-2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffb900;
+    }
 }
