@@ -28,9 +28,14 @@ export async function postGameData(data) {
             method: 'POST',
             body: JSON.stringify(data),
         })
-        const result = await response.json();
-
-        console.log(result);
+    } catch (error) {
+        console.error(error);
+    }
+}
+export async function getGamesData() {
+    try {
+        const response = await fetch(URL)
+        return await response.json()
     } catch (error) {
         console.error(error);
     }
