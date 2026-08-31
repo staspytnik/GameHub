@@ -22,6 +22,13 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+
+    @media(min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
   }
 
   &__subTitle {
@@ -113,8 +120,9 @@
 
     @media (min-width: 768px) {
       width: 334px;
-      line-clamp: 4;
-      -webkit-line-clamp: 4;
+      // overflow: visible;
+      line-clamp: 2;
+      -webkit-line-clamp: 2;
     }
 
     @media (min-width: 1280px) {
@@ -180,5 +188,10 @@
     flex-direction: column;
     gap: 8px;
     margin-top: 15.5px;
+
+    @media (min-width: 768px) {
+      display: flex;
+      flex-direction: row;
+    }
   }
 }
