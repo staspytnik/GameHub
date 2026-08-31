@@ -5,8 +5,19 @@
     display: flex;
     gap: 20px;
     flex-direction: column;
+
+    @media (min-width: 1280px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 
+  &__wrapper {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+  }
   &__features {
     border: 1px solid color-mix(in srgb, var(--color-primary) 25%, transparent);
     background: color-mix(in srgb, var(--color-primary-hover) 15%, transparent);
@@ -144,7 +155,7 @@
     min-width: 320px;
   }
 
-  &__games {
+  &__allGames {
     display: flex;
     width: 130px;
     height: 16px;
@@ -174,5 +185,44 @@
     font-size: 14px;
     line-height: 143%;
     color: var(--color-text-primary);
+  }
+
+  &__games {
+    display: none;
+
+    @media (min-width: 1280px) {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    &--position {
+      display: flex;
+      gap: 12px;
+      flex-direction: column;
+    }
+
+    &--img {
+      border: 1px solid var(--color-surface-elevated);
+      border-radius: 16px;
+      width: 234px;
+      height: 175px;
+    }
+
+    &--title {
+      font-family: var(--font-family);
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 125%;
+      color: var(--color-text-primary);
+    }
+
+    &--year {
+      font-family: var(--font-family);
+      font-weight: 400;
+      font-size: 11px;
+      line-height: 150%;
+      color: var(--color-text-secondary);
+    }
   }
 }
