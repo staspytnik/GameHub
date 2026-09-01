@@ -6,6 +6,7 @@ import placehplderImage from '../../public/images/card-image-placeholder.png'
 const libraryAddGameButton = document.querySelector('.library__button')
 
 const libraryGamesList = document.querySelector('.library-games-list');
+const emptyStateElement = document.querySelector('.library-empty');
 
 const init = () => {
     libraryAddGameButton.addEventListener('click', () => {
@@ -14,7 +15,7 @@ const init = () => {
 }
 
 const renderGames = (data) => {
-    data.map(game => {
+    data.length > 0 ? data.map(game => {
         let statusCard;
 
         switch (game.status) {
@@ -59,8 +60,7 @@ const renderGames = (data) => {
             </div>
         `
         libraryGamesList.appendChild(cardElement)
-    })
-
+    }) : emptyStateElement.classList.add('library-empty--active')
 }
 
 document.addEventListener('DOMContentLoaded', () => {
