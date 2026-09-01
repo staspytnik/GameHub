@@ -15,8 +15,25 @@ const init = () => {
 
 const renderGames = (data) => {
     data.map(game => {
+        let statusCard;
+
+        switch (game.status) {
+            case 'want-to-play': {
+                statusCard = 'status--want-to-play';
+                break;
+            }
+            case 'completed': {
+                statusCard = 'status--completed';
+                break;
+            }
+            case 'playing': {
+                statusCard = 'status--playing';
+                break;
+            }
+        }
+
         const cardElement = document.createElement('article')
-        cardElement.classList.add('game-card')
+        cardElement.classList.add('game-card', statusCard)
         cardElement.innerHTML = `
             <div class="game-card__cover">
                 <img
@@ -29,7 +46,7 @@ const renderGames = (data) => {
                 <div class="game-card__top">
                   <h3 class="game-card__title">${game.name}</h3>
             
-                  <span class="game-card__status status--want-to-play">
+                  <span class="game-card__status status--want-to-play ${statusCard}">
                     ${game.status}
                   </span>
                 </div>
