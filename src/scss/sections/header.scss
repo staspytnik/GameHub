@@ -1,10 +1,113 @@
-// Site header section.
+@use '../variables';
 
-.site-header {
-  background-color: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
+* {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.site-header .container {
-  padding-block: var(--space-2);
+body {
+    background-color: white;
+}
+
+.header {
+  background-color: var(--color-blue-6);
+  align-items: center;
+  height: 65px;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 190px;
+    @media (min-width: 600px) {
+      gap: 20px;
+    }
+  }
+
+  &__logo {
+    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+  }
+
+  &__title {
+    display: none;
+
+    @media (min-width: 600px) {
+     display: block;
+     font-family: var(--font-family);
+      font-weight: 900;
+      font-size: 17px;
+      line-height: 150%;
+      letter-spacing: -0.03em;
+      text-align: center;
+      padding-top: 3px;
+      color: var(--color-grey-96);
+    }
+  }
+  &__list {
+    display: none;
+
+    @media (min-width: 600px) {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    &--item {
+
+    &-link {
+      font-family: var(--font-family);
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 143%;
+      text-align: center;
+      color: var(--color-grey-61);
+      border-radius: 8px;
+      padding: 8px 16px;
+      transition: 0.5s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      &:hover {
+        background-color: var(--color-violet-66-120);
+      }
+
+    }
+
+    }
+  }
+  &__pfp {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+  }
+  &__searchWrapper {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__logotitleWrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__bookmarkBtn {
+    @media (min-width: 600px) {
+      display: none;
+    }
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+
 }
