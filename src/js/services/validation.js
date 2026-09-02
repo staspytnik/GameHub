@@ -3,6 +3,7 @@ import {postGameData} from "./firebase-db.js";
 
 export class FormValidator {
     static FIRST_GAME_YEAR = 1972;
+    static CURRENT_YEAR = new Date().getFullYear();
 
     constructor(form) {
         this.form = form;
@@ -130,6 +131,13 @@ export class FormValidator {
                 year < FormValidator.FIRST_GAME_YEAR
             ) {
                 return `Рік повинен бути більшим за ${FormValidator.FIRST_GAME_YEAR}`;
+            }
+
+            if (
+                !Number.isInteger(year) ||
+                year > FormValidator.CURRENT_YEAR
+            ) {
+                return `Рік повинен бути меншим за ${FormValidator.CURRENT_YEAR}`;
             }
         }
 
