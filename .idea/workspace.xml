@@ -7,6 +7,7 @@
     <list default="true" id="cc4bb706-8ab2-4b91-80c4-722d6fe81936" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/library.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/library.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/templates/library-card.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/templates/library-card.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +89,7 @@
       <workItem from="1788175002138" duration="3586000" />
       <workItem from="1788261092297" duration="1028000" />
       <workItem from="1788263189803" duration="6000" />
-      <workItem from="1788355754105" duration="3374000" />
+      <workItem from="1788355754105" duration="3756000" />
     </task>
     <servers />
   </component>
