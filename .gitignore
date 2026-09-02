@@ -6,8 +6,8 @@ dist
 
 # environment variables
 .env
-.env.*
-!.env.example
+.env
+!.env
 .env.local
 
 # OS files
