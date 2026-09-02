@@ -33,9 +33,13 @@ export async function fetchGameScreenshots(id) {
  */
 export async function fetchGenres() {
   // TODO: implement request to `${RAWG_BASE_URL}/genres`
-  const response = await fetch(`${RAWG_BASE_URL}/genres?key=${RAWG_API_KEY}`);
-  const genre = await response.json();
-  return genre.results;
+  try {
+    const response = await fetch(`${RAWG_BASE_URL}/genres?key=${RAWG_API_KEY}`);
+    const genre = await response.json();
+    return genre.results;
+  } catch (error) {
+    alert(error);
+  }
 }
 
 /**
