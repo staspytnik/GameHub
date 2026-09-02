@@ -63,11 +63,13 @@ const renderGames = (data) => {
     }) : emptyStateElement.classList.add('library-empty--active')
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    getGamesData().then(data => {
-        console.log(Object.values(data))
-        renderGames(Object.values(data))
-    });
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const gameData = await getGamesData();
+        renderGames(Object.values(gameData));
+    } catch (error) {
+        console.error(error);
+    }
 })
 
 init()

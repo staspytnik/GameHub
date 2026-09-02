@@ -24,14 +24,19 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
 export async function postGameData(data) {
-    try {
-        const response = await fetch(URL, {
-            method: 'POST',
-            body: JSON.stringify(data),
-        })
-    } catch (error) {
-        console.error(error);
+    const response = await fetch(URL, {
+        method: 'POST',
+        headers: {
+            contentType: 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+
+    if (!response.ok) {
+        throw new Error('Failed to post game data');
     }
+
+    return await response.json();
 }
 export async function getGamesData() {
     try {
