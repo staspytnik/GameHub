@@ -15,7 +15,7 @@ const init = () => {
 }
 
 const renderGames = (data) => {
-    data.length > 0 ? data.map(game => {
+    data ? Object.values(data).map(game => {
         let statusCard;
 
         switch (game.status) {
@@ -66,7 +66,7 @@ const renderGames = (data) => {
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         const gameData = await getGamesData();
-        renderGames(Object.values(gameData));
+        renderGames(gameData);
     } catch (error) {
         console.error(error);
     }
