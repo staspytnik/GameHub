@@ -19,6 +19,8 @@
                 placeholder="e.g. Hollow Knight"
                 required
                 name="name"
+                minlength="4"
+                maxlength="20"
         />
     </div>
 
@@ -54,6 +56,8 @@
                     data-validation="game-year"
                     name="year"
                     max="2026"
+                    min="1972"
+                    step="1"
             />
         </div>
     </div>
@@ -80,6 +84,7 @@
                 id="description"
                 placeholder="Short description..."
                 name="description"
+                maxlength="250"
         ></textarea>
     </div>
 
