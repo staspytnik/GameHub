@@ -147,6 +147,8 @@ export class FormValidator {
     showError(field, message) {
         const container = field.closest('.modal-window__field');
 
+        if (!container) return
+
         let errorElement = container.querySelector('.form-error');
 
         if (!errorElement) {
@@ -161,6 +163,8 @@ export class FormValidator {
 
     removeError(field) {
         const container = field.closest('.modal-window__field');
+        if (!container) return
+
         const errorElement = container.querySelector('.form-error');
 
         errorElement?.remove();
