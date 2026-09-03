@@ -16,6 +16,12 @@ modalOverlay.classList.add('modal-overlay')
 
 let modalForm;
 
+function closeOnEscape(event) {
+    if (event.key === 'Escape') {
+        closeModal()
+    }
+}
+
 export function openModal(html) {
   // TODO: implement modal rendering and open state.
     if (!modalOverlay.hasAttribute(modalDataAttribute)) {
@@ -30,10 +36,11 @@ export function openModal(html) {
         document.body.appendChild(modalOverlay)
 
         modalOverlay.addEventListener('click', (event) => {
-            if (event.target.closest(modalCloseDataAttr)) {
+            if (event.target.closest(modalCloseDataAttr) || event.target.matches('.modal-overlay')) {
                 closeModal()
             }
         })
+        document.addEventListener('keydown', closeOnEscape)
 
         modalForm = modalWindow.querySelector('[data-modal-form]')
 
@@ -54,6 +61,7 @@ export function closeModal() {
   // TODO: implement modal close/cleanup.
     modalOverlay.removeEventListener('click', closeModal)
     modalOverlay.classList.remove('modal-overlay--active')
+    document.removeEventListener('keydown', closeOnEscape)
 
     setTimeout(() => {
         modalOverlay.innerHTML = ''
