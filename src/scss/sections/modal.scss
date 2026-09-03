@@ -204,7 +204,6 @@ body:has(.modal-overlay.modal-overlay--active) {
 
 @media (max-width: 768px) {
   .modal-overlay {
-    align-items: flex-end;
     padding: var(--space-1);
   }
 
