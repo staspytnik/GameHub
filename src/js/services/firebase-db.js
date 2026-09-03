@@ -33,13 +33,25 @@ export async function postGameData(data) {
         body: JSON.stringify(data),
     })
 
-    closeModal()
-
     if (!response.ok) {
         throw new Error('Failed to post game data');
     }
 
-    return await response.json();
+    const gameData = await response.json();
+    let filteredGames;
+
+    if (gameData) {
+        filteredGames = Object.values(gameData).filter(game =>
+            game.name !== undefined &&
+            game.status !== undefined &&
+            game.genre !== undefined &&
+            game.year !== undefined
+        );
+    }
+
+    closeModal()
+
+    return filteredGames;
 }
 export async function getGamesData() {
     try {
