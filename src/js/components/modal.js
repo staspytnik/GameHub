@@ -32,7 +32,10 @@ export function openModal(html) {
         modalOverlay.addEventListener('click', closeModal)
 
         modalForm = modalWindow.querySelector('[data-modal-form]')
-        new FormValidator(modalForm)
+
+        if (modalForm) {
+            new FormValidator(modalForm)
+        }
 
         requestAnimationFrame(() => {
             modalOverlay.classList.add('modal-overlay--active')
