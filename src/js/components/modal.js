@@ -12,12 +12,14 @@ const modalDataAttribute = 'data-modal'
 const modalCloseDataAttr = '[data-modal-close]'
 
 const modalOverlay = document.createElement('div')
+const modalWindow = document.createElement('div')
 modalOverlay.classList.add('modal-overlay')
 
 let modalForm;
 
 function closeOnEscape(event) {
     if (event.key === 'Escape') {
+        modalWindow.removeAttribute('aria-modal')
         closeModal()
     }
 }
@@ -44,9 +46,8 @@ function focusTrap(event) {
 export function openModal(html) {
   // TODO: implement modal rendering and open state.
     if (!modalOverlay.hasAttribute(modalDataAttribute)) {
-        const modalWindow = document.createElement('div')
-
         modalWindow.classList.add('modal-window')
+        modalWindow.setAttribute('aria-modal', 'true')
         modalOverlay.setAttribute(modalDataAttribute, '')
 
         modalWindow.innerHTML = html
@@ -56,6 +57,7 @@ export function openModal(html) {
 
         modalOverlay.addEventListener('click', (event) => {
             if (event.target.closest(modalCloseDataAttr) || event.target.matches('.modal-overlay')) {
+                modalWindow.removeAttribute('aria-modal')
                 closeModal()
             }
         })
