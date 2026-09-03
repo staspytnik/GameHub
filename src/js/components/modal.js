@@ -21,7 +21,26 @@ function closeOnEscape(event) {
         closeModal()
     }
 }
+function focusTrap(event) {
+    if (event.key !== 'Tab') return;
 
+    const focusableElements = modalOverlay.querySelectorAll(
+        'button, input, textarea, select, a[href], [tabindex]:not([tabindex="-1"])'
+    );
+
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+
+    if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+    }
+
+    if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+    }
+}
 export function openModal(html) {
   // TODO: implement modal rendering and open state.
     if (!modalOverlay.hasAttribute(modalDataAttribute)) {
@@ -41,6 +60,7 @@ export function openModal(html) {
             }
         })
         document.addEventListener('keydown', closeOnEscape)
+        document.addEventListener('keydown', focusTrap)
 
         modalForm = modalWindow.querySelector('[data-modal-form]')
 
@@ -62,6 +82,7 @@ export function closeModal() {
     modalOverlay.removeEventListener('click', closeModal)
     modalOverlay.classList.remove('modal-overlay--active')
     document.removeEventListener('keydown', closeOnEscape)
+    document.removeEventListener('keydown', focusTrap)
 
     setTimeout(() => {
         modalOverlay.innerHTML = ''
