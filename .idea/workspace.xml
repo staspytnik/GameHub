@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cc4bb706-8ab2-4b91-80c4-722d6fe81936" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/services/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/services/validation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/components/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/components/modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/services/firebase-db.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/services/firebase-db.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +91,7 @@
       <workItem from="1788263189803" duration="6000" />
       <workItem from="1788355754105" duration="7501000" />
       <workItem from="1788364519995" duration="1393000" />
-      <workItem from="1788445349943" duration="925000" />
+      <workItem from="1788445349943" duration="1359000" />
     </task>
     <servers />
   </component>

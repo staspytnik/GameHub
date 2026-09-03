@@ -29,7 +29,11 @@ export function openModal(html) {
         modalOverlay.appendChild(modalWindow)
         document.body.appendChild(modalOverlay)
 
-        modalOverlay.addEventListener('click', closeModal)
+        modalOverlay.addEventListener('click', (event) => {
+            if (event.target.closest(modalCloseDataAttr)) {
+                closeModal()
+            }
+        })
 
         modalForm = modalWindow.querySelector('[data-modal-form]')
 
@@ -46,16 +50,14 @@ export function openModal(html) {
 /**
  * Close the currently open modal.
  */
-export function closeModal(event) {
+export function closeModal() {
   // TODO: implement modal close/cleanup.
-    if (event.target.closest(modalCloseDataAttr)) {
-        modalOverlay.removeEventListener('click', closeModal)
-        modalOverlay.classList.remove('modal-overlay--active')
+    modalOverlay.removeEventListener('click', closeModal)
+    modalOverlay.classList.remove('modal-overlay--active')
 
-        setTimeout(() => {
-            modalOverlay.innerHTML = ''
-            modalOverlay.removeAttribute(modalDataAttribute)
-            modalOverlay.remove()
-        }, 400)
-    }
+    setTimeout(() => {
+        modalOverlay.innerHTML = ''
+        modalOverlay.removeAttribute(modalDataAttribute)
+        modalOverlay.remove()
+    }, 400)
 }
