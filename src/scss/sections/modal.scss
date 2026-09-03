@@ -22,7 +22,9 @@
     opacity: 1;
   }
 }
-
+body:has(.modal-overlay.modal-overlay--active) {
+  overflow: hidden;
+}
 .modal-window {
   width: 100%;
   max-width: 548px;
