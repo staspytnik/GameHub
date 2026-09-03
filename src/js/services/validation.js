@@ -1,5 +1,6 @@
 import {formatData} from "./formatData.js";
 import {postGameData} from "./firebase-db.js";
+import {addCard} from "../library.js";
 
 export class FormValidator {
     static FIRST_GAME_YEAR = 1972;
@@ -37,7 +38,10 @@ export class FormValidator {
 
         console.log('Form is valid');
 
-        postGameData(formatData(this.form))
+        const cardData = formatData(this.form)
+        postGameData(cardData).then(data => {
+            addCard(cardData)
+        })
     };
 
     validate() {

@@ -15,6 +15,18 @@ const playingGames = document.querySelector('[data-status="playing"]');
 const completedGames = document.querySelector('[data-status="completed"]');
 const wantToPlayGames = document.querySelector('[data-status="want-to-play"]');
 
+let cards = {}
+
+export function addCard(cardData) {
+    cards = {
+        ...cards,
+        [crypto?.randomUUID() ?? Date.now()]: cardData
+    };
+
+    renderGames(cards);
+    statusCounts(cards);
+}
+
 const template = Handlebars.compile(gameCardTemplate);
 Handlebars.registerHelper('eq', (a, b) => a === b);
 
@@ -61,9 +73,9 @@ const renderGames = (data) => {
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const gameData = await getGamesData();
-        renderGames(gameData);
-        statusCounts(gameData);
+        cards = await getGamesData();
+        renderGames(cards);
+        statusCounts(cards);
     } catch (error) {
         console.error(error);
     }
