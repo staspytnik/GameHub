@@ -5,6 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc4bb706-8ab2-4b91-80c4-722d6fe81936" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/library.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/library.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/services/firebase-db.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/services/firebase-db.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/services/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/services/validation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,7 +96,7 @@
       <workItem from="1788364519995" duration="1393000" />
       <workItem from="1788445349943" duration="5094000" />
       <workItem from="1788450528560" duration="30000" />
-      <workItem from="1788531899624" duration="3630000" />
+      <workItem from="1788531899624" duration="5596000" />
     </task>
     <servers />
   </component>

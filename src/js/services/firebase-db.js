@@ -4,7 +4,15 @@ import { getFirestore } from "firebase/firestore";
 import {closeModal} from "../components/modal.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
+import { Notyf } from 'notyf';
+import 'notyf/notyf.min.css';
 
+const notyf = new Notyf({
+    position: {
+        x: 'center',
+        y: 'top'
+    },
+});
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -58,6 +66,6 @@ export async function getGamesData() {
         const response = await fetch(URL)
         return await response.json()
     } catch (error) {
-        console.error(error);
+        notyf.error(error.message);
     }
 }

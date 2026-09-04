@@ -1,6 +1,15 @@
 import {formatData} from "./formatData.js";
 import {postGameData} from "./firebase-db.js";
 import {addCard} from "./library-cards.js";
+import { Notyf } from 'notyf';
+import 'notyf/notyf.min.css';
+
+const notyf = new Notyf({
+    position: {
+        x: 'center',
+        y: 'top'
+    },
+});
 
 export class FormValidator {
     static FIRST_GAME_YEAR = 1972;
@@ -33,10 +42,9 @@ export class FormValidator {
         event.preventDefault();
 
         if (!this.validate()) {
+            notyf.error('Form is not valid');
             return;
         }
-
-        console.log('Form is valid');
 
         const cardData = formatData(this.form)
         postGameData(cardData).then(data => {

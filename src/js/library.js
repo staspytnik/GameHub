@@ -1,7 +1,16 @@
 import {openModal} from "./components/modal.js";
 import modalTemplate from './templates/library-modal.hbs?raw'
 import {getGamesData} from "./services/firebase-db.js";
-import {addAllCards, addCard, cards, renderGames, statusCounts} from "./services/library-cards.js";
+import {addAllCards, cards, renderGames} from "./services/library-cards.js";
+import { Notyf } from 'notyf';
+import 'notyf/notyf.min.css';
+
+const notyf = new Notyf({
+    position: {
+        x: 'center',
+        y: 'top'
+    },
+});
 
 const libraryAddGameButton = document.querySelector('.library__button')
 
@@ -18,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const fetchCards = await getGamesData()
         addAllCards(fetchCards)
     } catch (error) {
-        console.error(error);
+        notyf.error(error.message)
     }
 })
 
