@@ -5,6 +5,14 @@
 
 // Sections: each section/component owns its own file under `sections/`
 // so multiple team members can style independent parts without conflicts.
+// library page section styles
+@use './library-page-sections/library-heading';
+@use './library-page-sections/library-stats';
+@use './library-page-sections/library-filters';
+@use './library-page-sections/library-games-list';
+@use './library-page-sections/library-empty-state';
+@use './library-page-sections/library-game-card';
+
 @use './sections/layout';
 @use './sections/header';
 @use './sections/footer';

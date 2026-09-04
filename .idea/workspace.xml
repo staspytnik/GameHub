@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cc4bb706-8ab2-4b91-80c4-722d6fe81936" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/js/services/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/services/validation.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="3IMyaSfKGQ2NtfrafH9aEWhIq4u" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Node.js.library.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/library&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/GameHub-goit-js/GameHub/public&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2025.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GameHub-goit-js\GameHub\public" />
+      <recent name="D:\GameHub-goit-js\GameHub\public\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GameHub-goit-js\GameHub\public\images" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="library.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/js/library.js" working-dir="$PROJECT_DIR$/src/js">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.library.js" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.29346.242" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cc4bb706-8ab2-4b91-80c4-722d6fe81936" name="Changes" comment="" />
+      <created>1787588795801</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1787588795801</updated>
+      <workItem from="1787588797355" duration="249000" />
+      <workItem from="1787646681770" duration="6938000" />
+      <workItem from="1787673220228" duration="1950000" />
+      <workItem from="1787731573616" duration="42000" />
+      <workItem from="1787756722546" duration="4911000" />
+      <workItem from="1787817803658" duration="6836000" />
+      <workItem from="1787829924536" duration="26000" />
+      <workItem from="1787929424429" duration="4635000" />
+      <workItem from="1788175002138" duration="3586000" />
+      <workItem from="1788261092297" duration="1028000" />
+      <workItem from="1788263189803" duration="6000" />
+      <workItem from="1788355754105" duration="7501000" />
+      <workItem from="1788364519995" duration="1393000" />
+      <workItem from="1788445349943" duration="5094000" />
+      <workItem from="1788450528560" duration="30000" />
+      <workItem from="1788531899624" duration="6037000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

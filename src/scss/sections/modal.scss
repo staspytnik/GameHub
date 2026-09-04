@@ -1,5 +1,233 @@
 // Modal component styles.
 // TODO: implement alongside js/components/modal.js.
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
 
-.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: var(--space-2);
+
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+
+  opacity: 0;
+
+  transition: opacity var(--transition-slow);
+
+  &--active {
+    opacity: 1;
+  }
+}
+body:has(.modal-overlay.modal-overlay--active) {
+  overflow: hidden;
+}
+.modal-window {
+  width: 100%;
+  max-width: 548px;
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+  overflow: hidden;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: var(--space-3);
+
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  &__title {
+    margin: 0;
+
+    color: var(--color-text-primary);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+  }
+
+  &__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+
+    padding: 0;
+    border: 0;
+    background: transparent;
+
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-xl);
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: color var(--transition-fast);
+
+    &:hover {
+      color: var(--color-text-primary);
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+
+    padding: var(--space-3);
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2);
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+
+    min-width: 0;
+  }
+
+  &__label {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  &__input,
+  &__select,
+  &__textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+
+    background: var(--color-surface-elevated);
+    color: var(--color-text-primary);
+
+    font-size: var(--font-size-sm);
+
+    outline: none;
+
+    transition:
+            border-color var(--transition-fast),
+            box-shadow var(--transition-fast);
+
+    &::placeholder {
+      color: var(--color-text-secondary);
+    }
+
+    &:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+    }
+  }
+
+  &__input,
+  &__select {
+    height: 44px;
+    padding: 0 var(--space-2);
+  }
+
+  &__select {
+    cursor: pointer;
+  }
+
+  &__textarea {
+    min-height: 88px;
+    padding: var(--space-1) var(--space-2);
+
+    resize: vertical;
+  }
+
+  &__actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-1);
+
+    margin-top: var(--space-1);
+  }
+
+  &__button {
+    height: 46px;
+
+    border-radius: var(--radius-md);
+
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    transition:
+            background var(--transition-fast),
+            border-color var(--transition-fast),
+            transform var(--transition-fast);
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    &--cancel {
+      border: 1px solid var(--color-border);
+      background: transparent;
+      color: var(--color-text-secondary);
+
+      &:hover {
+        background: var(--color-surface-elevated);
+        color: var(--color-text-primary);
+      }
+    }
+
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-overlay {
+    padding: var(--space-1);
+  }
+
+  .modal-window {
+    max-width: none;
+    border-radius: var(--radius-lg);
+  }
+
+  .modal-window__row {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-window__header {
+    padding: var(--space-2);
+  }
+
+  .modal-window__form {
+    padding: var(--space-2);
+  }
+}
+.form-error {
+  display: block;
+  margin-top: 6px;
+  color: #ff4d4f;
+  font-size: 12px;
+  line-height: 1.4;
 }

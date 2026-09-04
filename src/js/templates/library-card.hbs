@@ -1,0 +1,34 @@
+{{#each games}}
+    <article class="game-card
+        {{#if (eq status "want-to-play")}}status--want-to-play{{/if}}
+        {{#if (eq status "completed")}}status--completed{{/if}}
+        {{#if (eq status "playing")}}status--playing{{/if}}
+    ">
+        <div class="game-card__cover">
+            <img
+                    src="{{../placeholderImage}}"
+                    alt="game cover"
+            />
+        </div>
+
+        <div class="game-card__content">
+            <div class="game-card__top">
+                <h3 class="game-card__title">{{name}}</h3>
+
+                <span class="game-card__status
+                    {{#if (eq status "want-to-play")}}status--want-to-play{{/if}}
+                    {{#if (eq status "completed")}}status--completed{{/if}}
+                    {{#if (eq status "playing")}}status--playing{{/if}}
+                ">
+                    {{formatStatus status}}
+                </span>
+            </div>
+
+            <div class="game-card__meta">
+                <span class="game-card__genre">{{genre}}</span>
+                <span class="game-card__separator">•</span>
+                <span class="game-card__year">{{year}}</span>
+            </div>
+        </div>
+    </article>
+{{/each}}
