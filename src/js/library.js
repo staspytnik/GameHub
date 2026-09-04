@@ -25,8 +25,23 @@ document.addEventListener('DOMContentLoaded', async () => {
 const switchTab = (event) => {
     const tabButton = event.target.closest('.library-filters__item')
 
+    document.querySelector('.library-filters__item--active').classList.remove('library-filters__item--active')
+
     if (tabButton) {
-        console.log(Object.values(cards))
+        if (!tabButton.classList.contains('library-filters__item--active')) {
+            tabButton.classList.add('library-filters__item--active')
+        }
+        const filteredCards = Object.fromEntries(
+            Object.entries(cards).filter(([id, game]) => {
+                if (tabButton.dataset.tab === 'all') {
+                    return cards
+                } else {
+                    return game.status === tabButton.dataset.tab
+                }
+            })
+        );
+
+        renderGames(filteredCards);
     }
 }
 
