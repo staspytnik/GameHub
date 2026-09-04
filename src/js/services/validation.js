@@ -50,6 +50,7 @@ export class FormValidator {
         postGameData(cardData).then(data => {
             addCard(cardData)
         })
+        this.form.reset()
     };
 
     validate() {
