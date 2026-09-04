@@ -34,9 +34,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 const switchTab = (event) => {
     const tabButton = event.target.closest('.library-filters__item')
 
-    document.querySelector('.library-filters__item--active').classList.remove('library-filters__item--active')
-
     if (tabButton) {
+        document.querySelector('.library-filters__item--active').classList.remove('library-filters__item--active')
+
         if (!tabButton.classList.contains('library-filters__item--active')) {
             tabButton.classList.add('library-filters__item--active')
         }
