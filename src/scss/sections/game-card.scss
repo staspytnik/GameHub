@@ -9,14 +9,36 @@
     background-color: #20202a;
     overflow: hidden;
 
+    @media (min-width: 768px) {
+        height: auto;
+    }
+
+    @media (min-width: 1280px) {
+        width: 290px;
+        height: 452px;
+    }
+
     &__image {
         width: 150px;
         height: 200px;
         object-fit: cover;
+
+        @media (min-width: 1280px) {
+            width: 100%;
+            height: 100%;
+        }
     }
 
     &__header {
         position: relative;
+
+        @media (min-width: 768px) {
+            height: 216px;
+        }
+
+        @media (min-width: 1280px) {
+            height: 386px;
+        }
     }
 
     &__likeBtn {
@@ -30,6 +52,16 @@
         position: absolute;
         top: 10px;
         right: 10px;
+
+        @media (min-width: 1280px) {
+            width: 35px;
+            height: 35px;
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
     }
 
     &__platforms {
@@ -38,7 +70,7 @@
         bottom: 10px;
         left: 10px;
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
         align-items: flex-start;
         text-align: center;
     }
@@ -67,14 +99,29 @@
         padding: 7px;
         width: 150px;
         height: 66px;
+
+        @media (min-width: 1280px) {
+            width: 100%;
+        }
     }
 
     &__title {
         font-family: var(--font-family);
         font-weight: 600;
-        font-size: 10px;
+        font-size: 9px;
         line-height: 125%;
         color: var(--color-grey-96);
+
+        @media (min-width: 768px) {
+            font-size: 10px;
+        }
+
+        @media (min-width: 1280px) {
+            font-size: 13px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
     }
 
     &__description {
@@ -89,6 +136,10 @@
         font-size: 7px;
         display: flex;
         gap: 3px;
+
+        @media (min-width: 1280px) {
+            font-size: 12px;
+        }
     }
 
     &__meta {
@@ -97,21 +148,37 @@
     }
 
     &__released {
-        font-weight: 400;
-        font-size: 11px;
+        font-weight: 450;
+        font-size: 10px;
         line-height: 150%;
         color: #9696a3;
+
+        @media (min-width: 768px) {
+            font-size: 12px;
+        }
+
+        @media (min-width: 1280px) {
+            font-size: 15px;
+        }
     }
 
     &__rating {
         font-family: var(--font-family);
         font-weight: 600;
-        font-size: 14px;
+        font-size: 10px;
         line-height: 143%;
         color: var(--color-orange-50-2);
         display: flex;
         align-items: center;
         justify-content: center;
         color: #ffb900;
+
+        @media (min-width: 768px) {
+            font-size: 12px;
+        }
+
+        @media (min-width: 1280px) {
+            font-size: 15px;
+        }
     }
 }

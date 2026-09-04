@@ -9,14 +9,24 @@ const RAWG_API_KEY = import.meta.env.VITE_RAWG_API_KEY;
  * @param {Object} [params] - query params (search, page, genres, platforms, etc.)
  */
 export async function fetchGames(params = {}) {
-  // TODO: implement request to `${RAWG_BASE_URL}/games`
-  const response = await fetch(`${RAWG_BASE_URL}/games?key=${RAWG_API_KEY}&dates=2019-09-01,2019-09-30&platforms=18,1,7`)
-  const data = await response.json()
-  return data.results.map(game => ({
-    ...game,
-    released: game.released ? game.released.slice(0, 4) : '',
-    rating: game.rating ? game.rating.toFixed(1) : '0.0'
-  }));
+  try {
+    const response = await fetch(`${RAWG_BASE_URL}/games?key=${RAWG_API_KEY}&dates=2019-09-01,2019-09-30&platforms=18,1,7`);
+
+    if (!response.ok) {
+      throw new Error(`Error ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    return data.results.map(game => ({
+      ...game,
+      released: game.released ? game.released.slice(0, 4) : '',
+      rating: game.rating ? game.rating.toFixed(1) : '0.0'
+    }));
+  } catch (error) {
+    console.error('Помилка під час завантаження', error);
+    return [];
+  }
 }
 
 /**
