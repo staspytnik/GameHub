@@ -14,11 +14,16 @@ export function createGameCard(game) {
   return renderTemplate("heroCard", game);
 }
 
-const games = await fetchGames({ page_size: 4 });
+const games = await fetchGames();
+const randomGames = games
+  .sort(() => {
+    return Math.random() - 0.5;
+  })
+  .slice(0, 4);
 
 console.log(games);
 
-const gameCards = games.map((game) => {
+const gameCards = randomGames.map((game) => {
   return createGameCard(game);
 });
 
