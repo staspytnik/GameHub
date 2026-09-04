@@ -1,15 +1,22 @@
 // RAWG Video Games Database API client.
 // https://api.rawg.io/docs/
 
-const RAWG_BASE_URL = 'https://api.rawg.io/api';
+const RAWG_BASE_URL = "https://api.rawg.io/api";
 const RAWG_API_KEY = import.meta.env.VITE_RAWG_API_KEY;
 
 /**
  * Fetch a paginated list of games.
  * @param {Object} [params] - query params (search, page, genres, platforms, etc.)
  */
+
 export async function fetchGames(params = {}) {
   // TODO: implement request to `${RAWG_BASE_URL}/games`
+  const queryParams = new URLSearchParams(params)
+  const response = await fetch(
+    `${RAWG_BASE_URL}/games?key=${RAWG_API_KEY}&${queryParams.toString()}`,
+  );
+  const data = await response.json();
+  return data.results;
 }
 
 /**
