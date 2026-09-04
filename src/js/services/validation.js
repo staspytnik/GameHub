@@ -90,7 +90,7 @@ export class FormValidator {
             );
 
             if (!isChecked) {
-                return 'Оберіть один із варіантів';
+                return 'Choose between variants';
             }
 
             return null;
@@ -98,7 +98,7 @@ export class FormValidator {
 
         if (field.type === 'checkbox') {
             if (!field.checked) {
-                return 'Це поле обовʼязкове';
+                return 'This field is required';
             }
 
             return null;
@@ -106,14 +106,14 @@ export class FormValidator {
 
         if (field.tagName === 'SELECT') {
             if (!field.value) {
-                return 'Оберіть значення';
+                return 'Choose value';
             }
 
             return null;
         }
 
         if (!value) {
-            return 'Це поле обовʼязкове';
+            return 'This field is required';
         }
 
         const minLength = field.getAttribute('minlength');
@@ -122,7 +122,7 @@ export class FormValidator {
             minLength &&
             value.length < Number(minLength)
         ) {
-            return `Мінімальна довжина — ${minLength} символи`;
+            return `Minimum length — ${minLength} symbols`;
         }
 
         const validation = field.dataset.validation;
@@ -134,14 +134,14 @@ export class FormValidator {
                 !Number.isInteger(year) ||
                 year < FormValidator.FIRST_GAME_YEAR
             ) {
-                return `Рік повинен бути більшим за ${FormValidator.FIRST_GAME_YEAR}`;
+                return `Year must be greater than ${FormValidator.FIRST_GAME_YEAR}`;
             }
 
             if (
                 !Number.isInteger(year) ||
                 year > FormValidator.CURRENT_YEAR
             ) {
-                return `Рік повинен бути меншим за ${FormValidator.CURRENT_YEAR}`;
+                return `Year must be less than ${FormValidator.CURRENT_YEAR}`;
             }
         }
 
