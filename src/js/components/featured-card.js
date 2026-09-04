@@ -11,7 +11,7 @@ import { refs } from "../refs.js";
  * @returns {string}
  */
 export function createGameCard(game) {
-  return renderTemplate("gameCard", game);
+  return renderTemplate("featuredCard", game);
 }
 
 const games = await fetchGames({ page_size: 1 });
@@ -21,5 +21,7 @@ console.log(games);
 const gameCards = games.map((game) => {
   return createGameCard(game);
 });
+
+console.log(gameCards);
 
 refs.featuredList.innerHTML = gameCards.join("");
