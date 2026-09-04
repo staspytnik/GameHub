@@ -1,40 +1,11 @@
 import {openModal} from "./components/modal.js";
 import modalTemplate from './templates/library-modal.hbs?raw'
 import {getGamesData} from "./services/firebase-db.js";
-import placeholderImage from '/images/card-image-placeholder.png'
-import gameCardTemplate from './templates/library-card.hbs?raw';
-import Handlebars from "handlebars";
+import {addAllCards, addCard, cards, renderGames, statusCounts} from "./services/library-cards.js";
 
 const libraryAddGameButton = document.querySelector('.library__button')
 
-const libraryGamesList = document.querySelector('.library-games-list');
-const emptyStateElement = document.querySelector('.library-empty');
-
-const totalGames = document.querySelector('[data-status="total"]');
-const playingGames = document.querySelector('[data-status="playing"]');
-const completedGames = document.querySelector('[data-status="completed"]');
-const wantToPlayGames = document.querySelector('[data-status="want-to-play"]');
-
-let cards = {}
-
-export function addCard(cardData) {
-    cards = {
-        ...cards,
-        [crypto?.randomUUID() ?? Date.now()]: cardData
-    };
-
-    renderGames(cards);
-    statusCounts(cards);
-}
-
-const template = Handlebars.compile(gameCardTemplate);
-Handlebars.registerHelper('eq', (a, b) => a === b);
-
-Handlebars.registerHelper('formatStatus', status => {
-    return status
-        .replace(/-/g, ' ')
-        .replace(/^./, char => char.toUpperCase());
-});
+const libraryFilters = document.querySelector('.library-filters');
 
 const init = () => {
     libraryAddGameButton.addEventListener('click', () => {
@@ -42,43 +13,23 @@ const init = () => {
     })
 }
 
-const statusCounts = (data) => {
-    const counts = {
-        'want-to-play': 0,
-        playing: 0,
-        completed: 0,
-    };
-
-    let totalCounts;
-
-    if (data) {
-        Object.values(data).forEach(game => {counts[game.status]++});
-    }
-
-    totalCounts = counts;
-
-    totalGames.textContent = String(data ? Object.values(data).length : 0)
-    playingGames.textContent = totalCounts.playing
-    completedGames.textContent = totalCounts.completed
-    wantToPlayGames.textContent = totalCounts['want-to-play']
-}
-
-const renderGames = (data) => {
-    data ? libraryGamesList.innerHTML = template({
-        games: Object.values(data),
-        placeholderImage: placeholderImage,
-    })
-    : emptyStateElement.classList.add('library-empty--active')
-}
-
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        cards = await getGamesData();
-        renderGames(cards);
-        statusCounts(cards);
+        const fetchCards = await getGamesData()
+        addAllCards(fetchCards)
     } catch (error) {
         console.error(error);
     }
 })
+
+const switchTab = (event) => {
+    const tabButton = event.target.closest('.library-filters__item')
+
+    if (tabButton) {
+        console.log(Object.values(cards))
+    }
+}
+
+libraryFilters.addEventListener('click', switchTab);
 
 init()

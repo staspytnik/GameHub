@@ -1,6 +1,6 @@
 import {formatData} from "./formatData.js";
 import {postGameData} from "./firebase-db.js";
-import {addCard} from "../library.js";
+import {addCard} from "./library-cards.js";
 
 export class FormValidator {
     static FIRST_GAME_YEAR = 1972;
