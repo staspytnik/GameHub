@@ -1,18 +1,17 @@
-  <div >
-      <h5 class="featured__subTitle">FEATURED</h5>
-    <h2 class="featured__gameName">Cyberpunk 2077</h2>
+<div>
+  <h5 class="featured__subTitle">FEATURED</h5>
+  <h2 class="featured__gameName">{{name}}</h2>
 
-    <div class="featured__info">
-      <div class="featured__info--genre">Action RPG</div>
-      <div class="featured__info--rating">
-        <img src="/images/star.svg" alt="star" /> 4.7
-      </div>
-      <div class="featured__info--year">2020</div>
+  <div class="featured__info">
+    <div class="featured__info--genre">{{genres}}</div>
+    <div class="featured__info--rating">
+      <img src="/images/star.svg" alt="star" />
+      {{rating}}
     </div>
-
-    <p class="featured__paragraph">
-      An open-world action-adventure story set in Night City, a megalopolis
-      obsessed with power, glamour and body modification. You play as V, a
-      mercenary outlaw going after
-    </p>
+    <div class="featured__info--year">{{released}}</div>
   </div>
+
+  <p class="featured__paragraph">
+    {{text}}
+  </p>
+</div>
