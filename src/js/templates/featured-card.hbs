@@ -1,17 +1,38 @@
-<div  class="featured__content">
-  <h5 class="featured__subTitle">FEATURED</h5>
-  <h2 class="featured__gameName">{{name}}</h2>
+<div
+  class="featured"
+  style="
+    background-image: url('{{background_image}}');
+    background-repeat: no-repeat;
+    background-position: center;
+  "
+>
+  <div class="featured__container">
+    <div class="featured__content">
+      <h5 class="featured__subTitle">FEATURED</h5>
+      <h2 class="featured__gameName">{{name}}</h2>
 
-  <div class="featured__info">
-    <div class="featured__info--genre">{{genres}}</div>
-    <div class="featured__info--rating">
-      <img src="/images/star.svg" alt="star" />
-      {{rating}}
+      <div class="featured__info">
+        <div class="featured__info--genre">
+          <ul class="people_list">
+            {{#each genres}}
+              <li>{{name}}</li>
+            {{/each}}
+          </ul>
+        </div>
+        <div class="featured__info--rating">
+          <img src="/images/star.svg" alt="star" />
+          {{rating}}
+        </div>
+        <div class="featured__info--year">{{released}}</div>
+      </div>
+
+      <p class="featured__paragraph">
+        {{description_raw}}
+      </p>
     </div>
-    <div class="featured__info--year">{{released}}</div>
+    <div class="featured__buttons">
+      <button class="featured__button">+ Add to Library</button>
+      <button class="featured__otherButton">View Details</button>
+    </div>
   </div>
-
-  <p class="featured__paragraph">
-    {{text}}
-  </p>
 </div>

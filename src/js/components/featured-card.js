@@ -2,7 +2,7 @@
 // Full markup/data mapping is implemented in a later task.
 
 import { renderTemplate } from "../templates/compile-template.js";
-import { fetchGames } from "../api/games-api.js";
+import { fetchGames, fetchGameById } from "../api/games-api.js";
 import { refs } from "../refs.js";
 
 /**
@@ -17,11 +17,14 @@ export function createGameCard(game) {
 const games = await fetchGames({ page_size: 1 });
 
 console.log(games);
+const randomIndex = Math.floor(Math.random() * games.length);
+const randomGame = games[randomIndex];
+const gameCard = await fetchGameById(randomGame.id);
 
-const gameCards = games.map((game) => {
-  return createGameCard(game);
-});
+// const gameCards = games.map((game) => {
+//   return createGameCard(game);
+// });
+console.log(gameCard);
+const renderGame = createGameCard(gameCard);
 
-console.log(gameCards);
-
-refs.featuredList.innerHTML = gameCards.join("");
+refs.featuredList.innerHTML = renderGame;

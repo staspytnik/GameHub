@@ -11,7 +11,9 @@ const RAWG_API_KEY = import.meta.env.VITE_RAWG_API_KEY;
 export async function fetchGames(params = {}) {
   // TODO: implement request to `${RAWG_BASE_URL}/games`
   const queryParams = new URLSearchParams(params);
-  const response = await fetch(`${RAWG_API_KEY}&${queryParams.toString()}`);
+  const response = await fetch(
+    `${RAWG_BASE_URL}/games?key=${RAWG_API_KEY}&${queryParams.toString()}`,
+  );
   const data = await response.json();
   return data.results;
 }
@@ -22,6 +24,11 @@ export async function fetchGames(params = {}) {
  */
 export async function fetchGameById(id) {
   // TODO: implement request to `${RAWG_BASE_URL}/games/${id}`
+  const response = await fetch(
+    `${RAWG_BASE_URL}/games/${id}?key=${RAWG_API_KEY}`,
+  );
+  const game = await response.json();
+  return game;
 }
 
 /**
