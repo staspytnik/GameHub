@@ -23,7 +23,7 @@
     padding: 24px;
     width: 100%;
     height: 100%;
-     background-color: rgba($color: #000000, $alpha: 0.5);
+     background-color: rgba($color: #000000, $alpha: 0.7);
 
     @media (min-width: 768px) {
       padding: 32px;
@@ -148,9 +148,7 @@
     align-items: center;
     border-radius: 12px;
     gap: 5px;
-    padding: 10px 19px;
-    width: 149px;
-    height: 40px;
+    padding: 10px 16px;
     background: var(--color-primary);
     font-family: var(--font-family);
     font-weight: var(--font-weight-bold);
@@ -171,9 +169,7 @@
     gap: 3px;
     border: 1px solid var(--color-border);
     border-radius: 12px;
-    padding: 10px 20px;
-    width: 127px;
-    height: 42px;
+    padding: 10px 16px;
     background: var(--color-surface);
     font-family: var(--font-family);
     font-weight: var(--font-weight-bold);
@@ -196,6 +192,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    align-items: flex-start;
 
     @media (min-width: 768px) {
       display: flex;
