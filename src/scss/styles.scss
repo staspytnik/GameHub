@@ -1,14 +1,15 @@
 /* GameHub stylesheet entry point */
-@use './reset';
-@use './variables';
-@use './base';
+@use "./reset";
+@use "./variables";
+@use "./base";
 
 // Sections: each section/component owns its own file under `sections/`
 // so multiple team members can style independent parts without conflicts.
-@use './sections/layout';
-@use './sections/header';
-@use './sections/footer';
-@use './sections/game-card';
-@use './sections/modal';
-@use './sections/loader';
-@use './sections/notification';
+@use "./sections/layout";
+@use "./sections/header";
+@use "./sections/footer";
+@use "./sections/game-card";
+@use "./sections/modal";
+@use "./sections/loader";
+@use "./sections/notification";
+@use "./sections/hero";
