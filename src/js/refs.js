@@ -4,5 +4,6 @@ export const refs = {
   header: document.querySelector("#header"),
   main: document.querySelector("#main"),
   footer: document.querySelector("#footer"),
-  featuredList: document.querySelector(".featured"),
+  heroList: document.querySelector(".hero__games"),
+  featuredList: document.querySelector("#featured"),
 };
