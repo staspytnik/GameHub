@@ -33,7 +33,6 @@ export default defineConfig({
   root: "src",
   publicDir: "../public",
   envDir: path.resolve(__dirname),
-
   plugins: [htmlIncludes()],
   build: {
     outDir: "../dist",
