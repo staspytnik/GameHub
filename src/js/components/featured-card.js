@@ -14,17 +14,12 @@ export function createGameCard(game) {
   return renderTemplate("featuredCard", game);
 }
 
-const games = await fetchGames({ page_size: 1 });
-
-console.log(games);
+const games = await fetchGames();
 const randomIndex = Math.floor(Math.random() * games.length);
 const randomGame = games[randomIndex];
-const gameCard = await fetchGameById(randomGame.id);
 
-// const gameCards = games.map((game) => {
-//   return createGameCard(game);
-// });
-console.log(gameCard);
-const renderGame = createGameCard(gameCard);
+console.log(randomGame);
 
-refs.featuredList.innerHTML = renderGame;
+const gameCard = createGameCard(randomGame);
+
+refs.featuredList.innerHTML = gameCard;
