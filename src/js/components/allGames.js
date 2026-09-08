@@ -2,17 +2,14 @@ import { fetchGames, fetchGenres } from "../api/games-api.js";
 import { createGameCard } from "./game-card.js";
 import { refs } from "../refs.js";
 
-const games = await fetchGames({ page_size: 8 });
-console.log(games);
-
-const pageSize = 8;
-
-const totalPages = Math.ceil(games.length / pageSize);
-console.log(totalPages);
+const games = await fetchGames();
 
 const gameCards = games.map((game) => {
   return createGameCard(game);
 });
+
+const pages = await fetchGames({ page_size: 8 });
+console.log(pages);
 
 refs.gamesList.innerHTML = gameCards.join("");
 
