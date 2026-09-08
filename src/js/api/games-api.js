@@ -8,6 +8,7 @@ const RAWG_API_KEY = import.meta.env.VITE_RAWG_API_KEY;
  * Fetch a paginated list of games.
  * @param {Object} [params] - query params (search, page, genres, platforms, etc.)
  */
+
 export async function fetchGames(params = {}) {
   try {
     const quaryParams = new URLSearchParams(params);

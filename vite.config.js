@@ -34,6 +34,7 @@ export default defineConfig({
   publicDir: "../public",
   envDir: path.resolve(__dirname),
   plugins: [htmlIncludes()],
+  envDir: path.resolve(__dirname),
   build: {
     outDir: "../dist",
     emptyOutDir: true,
