@@ -4,6 +4,7 @@ import {getGamesData} from "./services/firebase-db.js";
 import {addAllCards, cards, renderGames} from "./services/library-cards.js";
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
+import {getLibrary} from "./services/storage.js";
 
 const notyf = new Notyf({
     position: {
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
         const fetchCards = await getGamesData()
         addAllCards(fetchCards)
+        addAllCards(getLibrary())
     } catch (error) {
         notyf.error(error.message)
     }
@@ -49,7 +51,6 @@ const switchTab = (event) => {
                 }
             })
         );
-
         renderGames(filteredCards);
     }
 }
