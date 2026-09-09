@@ -25,9 +25,13 @@ const init = () => {
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const fetchCards = await getGamesData()
-        addAllCards(fetchCards)
         addAllCards(getLibrary())
+    } catch (error) {
+        notyf.error(error.message)
+    }
+
+    try {
+        addAllCards(await getGamesData())
     } catch (error) {
         notyf.error(error.message)
     }
@@ -43,12 +47,12 @@ const switchTab = (event) => {
             tabButton.classList.add('library-filters__item--active')
         }
         const filteredCards = Object.fromEntries(
-            Object.entries(cards).filter(([id, game]) => {
+            Object.entries(cards).filter(([, game]) => {
                 if (tabButton.dataset.tab === 'all') {
-                    return cards
-                } else {
-                    return game.status === tabButton.dataset.tab
+                    return true
                 }
+
+                return game.status === tabButton.dataset.tab
             })
         );
         renderGames(filteredCards);

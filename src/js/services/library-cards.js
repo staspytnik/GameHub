@@ -8,7 +8,7 @@ const template = Handlebars.compile(gameCardTemplate);
 Handlebars.registerHelper('eq', (a, b) => a === b);
 
 Handlebars.registerHelper('formatStatus', status => {
-    return status
+    return String(status ?? 'want-to-play')
         .replace(/-/g, ' ')
         .replace(/^./, char => char.toUpperCase());
 });
@@ -21,24 +21,70 @@ const wantToPlayGames = document.querySelector('[data-status="want-to-play"]');
 const libraryGamesList = document.querySelector('.library-games-list');
 const emptyStateElement = document.querySelector('.library-empty');
 
-export function addAllCards(dataCards) {
-    const games = Array.isArray(dataCards)
-        ? dataCards
-        : Object.values(dataCards);
+function toGameEntries(dataCards) {
+    if (!dataCards) {
+        return [];
+    }
 
-    const normalizedGames = games.map(game => ({
+    if (Array.isArray(dataCards)) {
+        return dataCards.map((game, index) => [game?.id ?? index, game]);
+    }
+
+    if (typeof dataCards === 'object') {
+        return Object.entries(dataCards);
+    }
+
+    return [];
+}
+
+function getGenre(game) {
+    if (game.genre) {
+        return game.genre;
+    }
+
+    if (Array.isArray(game.genres) && game.genres.length) {
+        return game.genres.map(genre => genre.name).filter(Boolean).join(', ');
+    }
+
+    return 'Unknown';
+}
+
+function normalizeGame(game, fallbackId) {
+    return {
+        id: game.id ?? fallbackId,
         name: game.name,
-        genre: game.genre ?? game.slug ?? 'Unknown',
+        genre: getGenre(game),
         year: game.year ?? game.released?.slice(0, 4) ?? 'Unknown',
         status: game.status ?? 'want-to-play',
-        image: game.background_image ?? placeholderImage,
+        image: game.background_image ?? game.image ?? placeholderImage,
         rating: game.rating ?? '',
-    }));
+    };
+}
+
+function toGamesList(data) {
+    if (!data) {
+        return [];
+    }
+
+    return Array.isArray(data) ? data : Object.values(data);
+}
+
+export function addAllCards(dataCards) {
+    const normalizedGames = {};
+
+    toGameEntries(dataCards).forEach(([id, game]) => {
+        if (!game || typeof game !== 'object' || !game.name) {
+            return;
+        }
+
+        const key = String(game.id ?? id);
+        normalizedGames[key] = normalizeGame(game, key);
+    });
 
     cards = {
         ...cards,
-        ...normalizedGames
-    }
+        ...normalizedGames,
+    };
 
     renderGames(cards);
     statusCounts(cards);
@@ -54,15 +100,21 @@ export function addCard(cardData) {
 }
 
 export const renderGames = (data) => {
-    if (!data || (Array.isArray(data) && data.length === 0)) {
-        emptyStateElement.classList.add('library-empty--active');
+    const games = toGamesList(data);
+
+    if (!games.length) {
+        libraryGamesList.innerHTML = '';
+        emptyStateElement?.classList.add('library-empty--active');
+        if (emptyStateElement) {
+            libraryGamesList.append(emptyStateElement);
+        }
         return;
     }
 
-    emptyStateElement.classList.remove('library-empty--active');
+    emptyStateElement?.classList.remove('library-empty--active');
 
     libraryGamesList.innerHTML = template({
-        games: data,
+        games,
     });
 };
 

@@ -1,14 +1,26 @@
 // LocalStorage abstraction for the user's saved game library.
 
-const STORAGE_KEY = 'GAMEHUB_LIBRARY';
+const STORAGE_KEY = 'library';
+const LEGACY_STORAGE_KEY = 'GAMEHUB_LIBRARY';
 
 /**
  * Get all games saved in the library.
  * @returns {Array}
  */
 export function getLibrary() {
-  const raw = localStorage.getItem(STORAGE_KEY);
-  return raw ? JSON.parse(raw) : [];
+  const raw =
+    localStorage.getItem(STORAGE_KEY) ??
+    localStorage.getItem(LEGACY_STORAGE_KEY);
+  if (!raw) return [];
+
+  try {
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed)) return parsed;
+    if (parsed && typeof parsed === 'object') return [parsed];
+    return [];
+  } catch {
+    return [];
+  }
 }
 
 /**
