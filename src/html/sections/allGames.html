@@ -3,7 +3,7 @@
     <div class="games__title--wrapper">
       <div>
         <h2 class="games__title">All games</h2>
-        <p class="games__subtitle">12 results</p>
+        <p class="games__subtitle"><span id="num-of-games"></span> results</p>
       </div>
       <div class="games__search">
         <svg
@@ -33,11 +33,22 @@
       <ul class="games__list"></ul>
     </div>
     <div class="games__navigation">
-      <button class="games__buttons games__navigation--buttons">
+      <button
+        type="button"
+        class="games__buttons games__navigation--buttons"
+        data-page="prev"
+        disabled
+      >
         ← Previous
       </button>
-      <button class="games__buttons chosen">1</button>
-      <button class="games__buttons games__navigation--buttons">Next →</button>
+      <div class="games__pages" data-pages></div>
+      <button
+        type="button"
+        class="games__buttons games__navigation--buttons"
+        data-page="next"
+      >
+        Next →
+      </button>
     </div>
   </div>
 </section>

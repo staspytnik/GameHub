@@ -1,20 +1,75 @@
 import { fetchGames, fetchGenres } from "../api/games-api.js";
 import { createGameCard } from "./game-card.js";
+import {
+  createPaginationState,
+  getVisiblePages,
+} from "../services/pagination.js";
 import { refs } from "../refs.js";
 
-const games = await fetchGames();
+const searchInput = document.querySelector(".games__input");
+const gamesGenres = document.querySelector(".games__list--categories");
+const resultsCount = document.querySelector(".games__subtitle");
+const prevBtn = document.querySelector('[data-page="prev"]');
+const nextBtn = document.querySelector('[data-page="next"]');
+const pagesWrap = document.querySelector("[data-pages]");
 
-const gameCards = games.map((game) => {
-  return createGameCard(game);
-});
+const filters = { search: "", genres: "" };
 
-const pages = await fetchGames({ page_size: 8 });
-console.log(pages);
+const pagination = createPaginationState(8);
 
-refs.gamesList.innerHTML = gameCards.join("");
+function renderGames(games) {
+  refs.gamesList.innerHTML = games.map(createGameCard).join("");
+}
+
+function getTotalPages() {
+  return Math.ceil(pagination.total / pagination.pageSize) || 0;
+}
+
+function updateNavigation(data = {}) {
+  const totalPages = getTotalPages();
+  const items = getVisiblePages(pagination.page, totalPages);
+
+  pagesWrap.innerHTML = items
+    .map((item) => {
+      if (item === "...") {
+        return "...";
+      }
+
+      const isCurrent = item === pagination.page;
+      return `<button type="button" class="games__buttons${
+        isCurrent ? " chosen" : ""
+      }" data-page-number="${item}">${item}</button>`;
+    })
+    .join("");
+  prevBtn.disabled = pagination.page <= 1;
+  nextBtn.disabled = pagination.page >= totalPages || !data.next;
+  resultsCount.textContent = `${pagination.total} results`;
+}
+
+async function loadGames() {
+  const params = {
+    page: pagination.page,
+    page_size: pagination.pageSize,
+  };
+
+  if (filters.search) params.search = filters.search;
+  if (filters.genres) params.genres = filters.genres;
+
+  const data = await fetchGames(params);
+
+  if (!data || Array.isArray(data)) {
+    pagination.total = 0;
+    renderGames([]);
+    updateNavigation();
+    return;
+  }
+
+  pagination.total = data.count ?? 0;
+  renderGames(data.results ?? []);
+  updateNavigation(data);
+}
 
 const genres = await fetchGenres();
-
 const list = document.querySelector(".games__list--categories");
 
 const createCategory = function (genre) {
@@ -38,27 +93,51 @@ if (genres) {
   alert("Something went wrong");
 }
 
-const searchInput = document.querySelector(".games__input");
-const gamesGenres = document.querySelector(".games__list--categories");
+await loadGames();
 
 searchInput.addEventListener("input", async (e) => {
-  const search = e.target.value.trim();
-
-  if (search !== "") {
-    const games = await fetchGames({ search });
-
-    const gameCards = games.map((game) => {
-      return createGameCard(game);
-    });
-
-    refs.gamesList.innerHTML = gameCards.join("");
-  }
+  filters.search = e.target.value.trim();
+  pagination.page = 1;
+  await loadGames();
 });
 
-gamesGenres.addEventListener("click", async (e) => {
-  const genres = e.target.closest("li").textContent.toLowerCase();
-  console.log(genres);
+const listCategories = document.querySelectorAll(".games__items--categories");
 
-  const games = await fetchGames({ genres });
-  console.log(games);
+gamesGenres.addEventListener("click", async (e) => {
+  const currentItem = e.target.closest(".games__items--categories");
+  if (!currentItem) return;
+
+  listCategories.forEach((item) => {
+    item.querySelector(".games__buttons").classList.remove("chosen");
+  });
+  currentItem.querySelector(".games__buttons").classList.add("chosen");
+
+  const genres = currentItem.textContent.trim().toLowerCase();
+  filters.genres = genres === "all" ? "" : genres;
+  pagination.page = 1;
+  await loadGames();
+});
+
+prevBtn.addEventListener("click", async () => {
+  if (pagination.page <= 1) return;
+  pagination.page -= 1;
+  await loadGames();
+});
+
+nextBtn.addEventListener("click", async () => {
+  const totalPages = getTotalPages();
+  if (pagination.page >= totalPages) return;
+  pagination.page += 1;
+  await loadGames();
+});
+
+pagesWrap.addEventListener("click", async (e) => {
+  const pageBtn = e.target.closest("[data-page-number]");
+  if (!pageBtn) return;
+
+  const page = Number(pageBtn.dataset.pageNumber);
+  if (page === pagination.page) return;
+
+  pagination.page = page;
+  await loadGames();
 });

@@ -21,15 +21,15 @@ export async function fetchGames(params = {}) {
     }
 
     const data = await response.json();
-    if (params.page_size !== undefined) {
-      return data;
-    }
-
-    return data.results.map((game) => ({
+    const results = data.results.map((game) => ({
       ...game,
       released: game.released ? game.released.slice(0, 4) : "",
       rating: game.rating ? game.rating.toFixed(1) : "0.0",
     }));
+    if (params.page_size !== undefined) {
+      return { ...data, results };
+    }
+    return results;
   } catch (error) {
     console.error("Помилка під час завантаження", error);
     return [];
