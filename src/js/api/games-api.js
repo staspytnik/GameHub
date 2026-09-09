@@ -42,6 +42,11 @@ export async function fetchGames(params = {}) {
  */
 export async function fetchGameById(id) {
   // TODO: implement request to `${RAWG_BASE_URL}/games/${id}`
+  const response = await fetch(
+    `${RAWG_BASE_URL}/games/${id}?key=${RAWG_API_KEY}`,
+  );
+  const game = await response.json();
+  return game;
 }
 
 /**

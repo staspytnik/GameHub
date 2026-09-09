@@ -126,9 +126,11 @@
     transition: var(--transition-base);
 
     &:hover {
-      background-color: color-mix(in srgb,
-          var(--color-surface) 50%,
-          transparent);
+      background-color: color-mix(
+        in srgb,
+        var(--color-surface) 50%,
+        transparent
+      );
 
       .hero__img {
         animation: spinDice 0.6s ease-in-out 1;
@@ -164,8 +166,10 @@
     height: 16px;
     justify-content: center;
     align-items: center;
-    border-left: 1px solid color-mix(in srgb, var(--color-text-secondary) 25%, transparent);
-    border-right: 1px solid color-mix(in srgb, var(--color-text-secondary) 25%, transparent);
+    border-left: 1px solid
+      color-mix(in srgb, var(--color-text-secondary) 25%, transparent);
+    border-right: 1px solid
+      color-mix(in srgb, var(--color-text-secondary) 25%, transparent);
     color: var(--color-text-secondary);
   }
 
@@ -255,6 +259,7 @@
         height: 100%;
 
         background-image: url("/images/div.absolute.png");
+        border-radius: 16px;
         background-size: cover;
         background-position: center;
       }
