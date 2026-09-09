@@ -1,0 +1,28 @@
+.popular-games {
+    &__topBar {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 24px;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 140%;
+        color: #f5f5f7;
+    }
+
+    &__all {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 143%;
+        text-align: center;
+        color: #8b5cf6;
+    }
+
+    &__list {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+}

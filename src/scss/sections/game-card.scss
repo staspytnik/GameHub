@@ -52,6 +52,7 @@
         position: absolute;
         top: 10px;
         right: 10px;
+        z-index: 10;
 
         @media (min-width: 1280px) {
             width: 35px;
