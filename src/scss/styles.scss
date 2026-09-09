@@ -7,6 +7,7 @@
 // so multiple team members can style independent parts without conflicts.
 @use './sections/layout';
 @use './sections/header';
+@use './sections/gamepage.scss';
 @use './sections/footer';
 @use './sections/game-card';
 @use './sections/modal';
