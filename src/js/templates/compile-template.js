@@ -1,9 +1,11 @@
 import Handlebars from 'handlebars';
 import gameCardSource from './game-card.hbs?raw';
+import surpriseCardSource from './suprise-card.hbs?raw'
 
 // Precompiled Handlebars templates, keyed by name.
 const templates = {
-  gameCard: Handlebars.compile(gameCardSource),
+  gameCard: Handlebars.compile(gameCardSource), 
+  surpriseCard: Handlebars.compile(surpriseCardSource)
 };
 
 /**
