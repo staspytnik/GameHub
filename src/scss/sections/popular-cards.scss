@@ -21,8 +21,24 @@
     }
 
     &__list {
-        display: flex;
+        // display: flex;
+        // gap: 8px;
+        // flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 8px;
-        flex-wrap: wrap;
+        justify-items: center;
+        .game-card {
+            width: 100%;
+
+        }
+        .game-card__image {
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
     }
 }
