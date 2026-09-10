@@ -1,132 +1,98 @@
 <section class="gamepage__section">
-<ul class="gamepage__section--list">
-  <li class="gamepage__section--list-item gamepage__section--list-item-1">
-    <a class="gamepage__section--list-item-link" href="#">
-      <img class="gamepage__section--list-item-link-icon" src="/images/arrow.svg" alt="arrow"> Back
-    </a>
-  </li>
-
-  <span class="gamepage__section--list-item-divider">/</span>
-
-  <li class="gamepage__section--list-item">
-    <a class="gamepage__section--list-item-link" href="#">Games</a>
-  </li>
-
-  <span class="gamepage__section--list-item-divider">/</span>
-
-  <li class="gamepage__section--list-item gamepage__section--list-item-action">
-    <a class="gamepage__section--list-item-link" href="#">Action RPG</a>
-  </li>
-
-  <span class="gamepage__section--list-item-divider">/</span>
-
-  <li class="gamepage__section--list-item">
-    <a class="gamepage__section--list-item-link" href="#">Cyberpunk 2077</a>
-  </li>
-</ul> 
+  <ul class="gamepage__section--list">
+    <li class="gamepage__section--list-item gamepage__section--list-item-1">
+      <a class="gamepage__section--list-item-link" href="index.html">
+        <img class="gamepage__section--list-item-link-icon" src="/images/arrow.svg" alt="arrow"> Back
+      </a>
+    </li>
+    <span class="gamepage__section--list-item-divider">/</span>
+    <li class="gamepage__section--list-item">
+      <a class="gamepage__section--list-item-link" href="index.html">Games</a>
+    </li>
+    <span class="gamepage__section--list-item-divider">/</span>
+    <li class="gamepage__section--list-item gamepage__section--list-item-action">
+      <a class="gamepage__section--list-item-link" href="index.html">{{genre}}</a>
+    </li>
+    <span class="gamepage__section--list-item-divider">/</span>
+    <li class="gamepage__section--list-item">
+      <span class="gamepage__section--list-item-link">{{name}}</span>
+    </li>
+  </ul>
   <div class="gamepage__section--card">
-    <img
-      class="gamepage__section--card-image"
-      src="/images/gameCard.png"
-      alt="gamepage_img"
-    />
+    <img class="gamepage__section--card-image" src="{{image}}" alt="{{name}}" />
     <span class="card-info-wrap">
-    <h2 class="gamepage__section--card-title">Cyberpunk 2077</h2>
-    <div class="info-wrapper">
-    <span class="gamepage__section--card-favourite"
-      ><img src="/images/star.svg" alt="star" />4.7</span
-    >
-    <span class="gamepage__section--card-genre">
-      <h3 class="gamepage__section--card-genre-title">Action</h3>
-      <h3 class="gamepage__section--card-genre-title">RPG</h3></span
-    >
-    <h3 class="gamepage__section--card-releaseDate">2020</h3>
-    </div>
-
-    <span class="gamepage__section--card-supportedDevices">
-      <h3 class="gamepage__section--card-supportedDevices-title">PC</h3>
-      <h3 class="gamepage__section--card-supportedDevices-title">PS5</h3>
-      <h3 class="gamepage__section--card-supportedDevices-title gamepage__section--card-supportedDevices-title-xbox">Xbox</h3>
+      <h2 class="gamepage__section--card-title">{{name}}</h2>
+      <div class="info-wrapper">
+        <span class="gamepage__section--card-favourite">
+          <img src="/images/star.svg" alt="star" />{{rating}}
+        </span>
+        <span class="gamepage__section--card-genre">
+          {{#each genres}}
+            <h3 class="gamepage__section--card-genre-title">{{this}}</h3>
+          {{/each}}
+        </span>
+        <h3 class="gamepage__section--card-releaseDate">{{year}}</h3>
+      </div>
+      <span class="gamepage__section--card-supportedDevices">
+        {{#each platforms}}
+          <h3 class="gamepage__section--card-supportedDevices-title">{{this}}</h3>
+        {{/each}}
+      </span>
+      <p class="gamepage__section--card-description">{{description}}</p>
+      <div class="btn-wrapper">
+        <button class="gamepage__section--card-buttonLib" type="button">Add to Library</button>
+        <button class="gamepage__section--card-buttonFav" type="button">
+          <img src="/images/heart.svg" alt="heart" />
+        </button>
+      </div>
     </span>
-    <p class="gamepage__section--card-description">
-        {{description}}
-    </p>
-    <div class="btn-wrapper">
-      <button class="gamepage__section--card-buttonLib">Add to Library</button>
-      <button class="gamepage__section--card-buttonFav"><img src="/images/heart.svg" alt="heart"/></button>
-    </div>
-    </span>
-
   </div>
 </section>
+
 <section class="details">
   <div class="container">
     <div>
       <div>
         <h2 class="details__title">About the Game</h2>
-        <p class="details__description" data-game-about></p>
-        <p class="details__description" data-game-about></p>
+        <p class="details__description">{{description}}</p>
       </div>
       <div>
         <h2 class="details__title">Screenshots</h2>
-        <ul class="details__list--screenshots" data-game-screenshots></ul>
+        <ul class="details__list--screenshots">
+          {{#each screenshots}}
+            <li class="details__item">
+              <img src="{{this}}" alt="screenshot" class="details__screenshot" />
+            </li>
+          {{/each}}
+        </ul>
       </div>
-
-      <div class="reviews">
-        <h2 class="details__title">Reviews</h2>
-        <a href="#">Write a review</a>
-      </div>
-      <ul class="details__list--reviews">
-        <li class="details__item--reviews">
-          <div class="details__box review-wrapper">
-            <div class="details__review--icon">A</div>
-            <h3 class="details__review--name">Alex_Gaming</h3>
-            <h4 class="details__review--date">Jan 2025</h4>
-            <div class="details__review--rating">
-              <ul class="details__review--rating--list">
-                <li class="details__review--rating--item">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M5.42958 1.75625C5.60958 1.20365 6.39138 1.20365 6.57078 1.75625L7.21278 3.73145C7.252 3.85174 7.32825 3.95655 7.43062 4.03091C7.533 4.10526 7.65625 4.14535 7.78278 4.14545H9.85998C10.4414 4.14545 10.6826 4.88945 10.2128 5.23145L8.53278 6.45185C8.4302 6.52626 8.35381 6.63125 8.31458 6.75176C8.27535 6.87226 8.27528 7.0021 8.31438 7.12265L8.95638 9.09785C9.13638 9.65045 8.50338 10.1106 8.03238 9.76865L6.35238 8.54825C6.2499 8.47385 6.12652 8.43378 5.99988 8.43378C5.87324 8.43378 5.74986 8.47385 5.64738 8.54825L3.96738 9.76865C3.49698 10.1106 2.86458 9.65045 3.04398 9.09785L3.68598 7.12265C3.72508 7.0021 3.72501 6.87226 3.68578 6.75176C3.64655 6.63125 3.57016 6.52626 3.46758 6.45185L1.78818 5.23205C1.31838 4.89005 1.56018 4.14605 2.14098 4.14605H4.21758C4.34421 4.14608 4.4676 4.10605 4.57009 4.03169C4.67259 3.95732 4.74893 3.85244 4.78818 3.73205L5.43018 1.75685L5.42958 1.75625Z"
-                      fill="#FFBA00" />
-                  </svg>
-                </li>
-              </ul>
-            </div>
-            <p class="details__review--text">
-              An absolute masterpiece. The world- building is unparalleled and
-              every quest feels handcrafted and meaningful.
-            </p>
-          </div>
-        </li>
-      </ul>
     </div>
     <div class="details__box info">
       <h3 class="details__heading">Game Info</h3>
       <ul class="details__list--info">
         <li class="details__item--info">
           <h4 class="details__question">Developer</h4>
-          <p class="details__answer" data-game-developer></p>
+          <p class="details__answer">{{developer}}</p>
         </li>
         <li class="details__item--info">
           <h4 class="details__question">Publisher</h4>
-          <p class="details__answer" data-game-publisher></p>
+          <p class="details__answer">{{publisher}}</p>
         </li>
         <li class="details__item--info">
           <h4 class="details__question">Release</h4>
-          <p class="details__answer" data-game-info-release></p>
+          <p class="details__answer">{{year}}</p>
         </li>
         <li class="details__item--info">
           <h4 class="details__question">Genres</h4>
-          <p class="details__answer" data-game-info-genres></p>
+          <p class="details__answer">{{genresText}}</p>
         </li>
         <li class="details__item--info">
           <h4 class="details__question">Platforms</h4>
-          <p class="details__answer" data-game-info-platforms></p>
+          <p class="details__answer">{{platformsText}}</p>
         </li>
         <li class="details__item--info">
           <h4 class="details__question">Rating</h4>
-          <p class="details__answer" data-game-info-rating></p>
+          <p class="details__answer">{{rating}} / 5.0</p>
         </li>
       </ul>
     </div>
