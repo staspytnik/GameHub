@@ -6,12 +6,13 @@ dist
 
 # environment variables
 .env
-.env.*
-!.env.example
+.env
+!.env
 .env.local
 
 # OS files
 .DS_Store
+.idea
 
 # editor
 .vscode/

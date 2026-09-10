@@ -1,0 +1,31 @@
+.library-filters {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 1px solid #27272A;
+  margin-top: var(--space-6);
+  gap: var(--space-4);
+
+  &__item {
+    padding-bottom: 13px;
+    color: var(--color-text-secondary);
+    line-height: 16.5px;
+    font-size: var(--font-size-xs);
+    position: relative;
+    font-weight: var(--font-weight-semibold);
+
+    &--active {
+      color: var(--color-primary);
+
+      &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: var(--color-primary);
+        position: absolute;
+        bottom: 0;
+      }
+    }
+  }
+}

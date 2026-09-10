@@ -83,13 +83,14 @@ export async function fetchRandomGame() {
   const pageSize = 20;
   const maxPage = 50;
   const randomPage = Math.floor(Math.random() * maxPage) + 1;
-  const results = await fetchGames({ page: randomPage, page_size: pageSize });
+  const data = await fetchGames({ page: randomPage, page_size: pageSize });
+  const games = Array.isArray(data) ? data : data?.results ?? [];
 
-  if (!results?.length) {
+  if (!games.length) {
     throw new Error('No games returned');
   }
 
-  return results[Math.floor(Math.random() * results.length)];
+  return games[Math.floor(Math.random() * games.length)];
 }
 
 export { RAWG_BASE_URL, RAWG_API_KEY };
