@@ -42,6 +42,7 @@ export default defineConfig({
         main: path.resolve(__dirname, 'src/index.html'),
         surprise: path.resolve(__dirname, 'src/suprise.html'),
         library: path.resolve(__dirname, 'src/library.html'),
+        game: path.resolve(__dirname, 'src/game.html'),
       },
     },
   },

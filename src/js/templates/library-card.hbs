@@ -1,9 +1,9 @@
 {{#each games}}
-    <article class="game-card
+    <article class="game-card 
         {{#if (eq status "want-to-play")}}status--want-to-play{{/if}}
         {{#if (eq status "completed")}}status--completed{{/if}}
         {{#if (eq status "playing")}}status--playing{{/if}}
-    ">
+    " data-id="{{id}}">
         <div class="game-card__cover">
             <img
                     src="{{image}}"
