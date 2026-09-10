@@ -4,7 +4,7 @@
 /**
  * Attach all application-level event listeners.
  */
-import { initSuprise } from '../components/suprise.js';
+import { initSuprise } from './components/suprise.js';
 
 export function initEvents() {
   initSuprise();

@@ -54,23 +54,17 @@ export async function fetchPlatforms() {
   // TODO: implement request to `${RAWG_BASE_URL}/platforms`
 }
 
-export async function fetchRandomGame(retries = 3) {
-  const countResponse = await fetch(
-    `${RAWG_BASE_URL}/games?key=${RAWG_API_KEY}&page_size=1`,
-  );
-  const { count } = await countResponse.json();
+export async function fetchRandomGame() {
+  const pageSize = 20;
+  const maxPage = 50;
+  const randomPage = Math.floor(Math.random() * maxPage) + 1;
+  const results = await fetchGames({ page: randomPage, page_size: pageSize });
 
-  const randomPage = Math.floor(Math.random() * count) + 1;
-
-  const pageResponse = await fetch(
-    `${RAWG_BASE_URL}/games?key=${RAWG_API_KEY}&page_size=1&page=${randomPage}`,
-  );
-  const { results } = await pageResponse.json();
-if (!results.length && retries > 0) {
-    return fetchRandomGame(retries - 1);
+  if (!results?.length) {
+    throw new Error('No games returned');
   }
 
-  return results[0];
+  return results[Math.floor(Math.random() * results.length)];
 }
 
 export { RAWG_BASE_URL, RAWG_API_KEY };
