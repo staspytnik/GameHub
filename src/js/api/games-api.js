@@ -40,6 +40,7 @@ export async function fetchGames(params = {}) {
  * Fetch a single game by its id.
  * @param {number|string} id
  */
+
 export async function fetchGameById(id) {
   // TODO: implement request to `${RAWG_BASE_URL}/games/${id}`
   const response = await fetch(
@@ -51,7 +52,7 @@ export async function fetchGameById(id) {
 
 /**
  * Fetch screenshots for a single game.
- * @param {number|string} id
+ * @param {number|string} id 
  */
 export async function fetchGameScreenshots(id) {
   // TODO: implement request to `${RAWG_BASE_URL}/games/${id}/screenshots`
@@ -76,6 +77,19 @@ export async function fetchGenres() {
  */
 export async function fetchPlatforms() {
   // TODO: implement request to `${RAWG_BASE_URL}/platforms`
+}
+
+export async function fetchRandomGame() {
+  const pageSize = 20;
+  const maxPage = 50;
+  const randomPage = Math.floor(Math.random() * maxPage) + 1;
+  const results = await fetchGames({ page: randomPage, page_size: pageSize });
+
+  if (!results?.length) {
+    throw new Error('No games returned');
+  }
+
+  return results[Math.floor(Math.random() * results.length)];
 }
 
 export { RAWG_BASE_URL, RAWG_API_KEY };

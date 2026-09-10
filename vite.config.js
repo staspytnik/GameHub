@@ -32,12 +32,17 @@ function htmlIncludes() {
 export default defineConfig({
   root: "src",
   publicDir: "../public",
-  envDir: path.resolve(__dirname),
   plugins: [htmlIncludes()],
   envDir: path.resolve(__dirname),
   build: {
     outDir: "../dist",
     emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'src/index.html'),
+        surprise: path.resolve(__dirname, 'src/suprise.html'),
+      },
+    },
   },
   css: {
     preprocessorOptions: {

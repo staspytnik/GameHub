@@ -4,7 +4,7 @@
 .game-card {
   border: 1px solid var(--color-surface-elevated);
   border-radius: 12px;
-  width: 152px;
+  width: 100%;
   height: 267px;
   background-color: #20202a;
   overflow: hidden;
@@ -14,12 +14,11 @@
   }
 
   @media (min-width: 1280px) {
-    width: 290px;
     height: 452px;
   }
 
   &__image {
-    width: 150px;
+    width: 100%;
     height: 200px;
     object-fit: cover;
 
@@ -41,17 +40,18 @@
     }
   }
 
-  &__likeBtn {
-    border-radius: 33554400px;
-    width: 24px;
-    height: 24px;
-    background-color: #060505ad;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 10px;
-    right: 10px;
+    &__likeBtn {
+        border-radius: 33554400px;
+        width: 24px;
+        height: 24px;
+        background-color: #060505ad;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 10;
 
     @media (min-width: 1280px) {
       width: 35px;
