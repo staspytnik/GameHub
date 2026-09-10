@@ -1,9 +1,12 @@
 // Centralized DOM element references, shared across modules.
 
 export const refs = {
-  header: document.querySelector('#header'),
-  main: document.querySelector('#main'),
-  footer: document.querySelector('#footer'),
+  header: document.querySelector("#header"),
+  main: document.querySelector("#main"),
+  footer: document.querySelector("#footer"),
+  heroList: document.querySelector(".hero__games"),
+  featuredList: document.querySelector("#featured"),
   surpriseBtn: document.querySelector('#surpriseBtn'),
-  featuredList: document.querySelector('#featuredList'),
+  surpriseResult: document.querySelector('#surpriseResult'),
+  
 };

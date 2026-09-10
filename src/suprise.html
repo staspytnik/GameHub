@@ -1,43 +1,46 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GameHub</title>
-    <link rel="stylesheet" href="./scss/styles.scss" />
-  </head>
-  <body>
-    <div class="container">
-      <header class="site-header" id="header">
-        <!-- @include header -->
-      </header>
 
-      <main class="main">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameHub</title>
+  <link rel="stylesheet" href="./scss/styles.scss" />
+</head>
 
-        <section class="surprise">
-  <div class="surprise__emoji" aria-hidden="true">🎲</div>
-  <h1 class="surprise__title">Surprise Me</h1>
-  <p class="surprise__subtitle">
-    Not sure what to play next? Let us pick something for<br />
-    you from the catalog.
-  </p>
-  <button class="btn-primary" id="surpriseBtn" type="button">
-    <span class="btn-primary__icon">🎲</span>
-    Surprise me
-  </button>
+<body>
+    <header class="site-header" id="header">
+      <!-- @include header -->
+    </header>
 
-  <div class="suprise-result" id="featuredList"></div>
-</section>
+    <main class="main">
+
+      <section class="surprise">
+        <div class="surprise__intro">
+          <div class="surprise__emoji" aria-hidden="true">🎲</div>
+          <h1 class="surprise__title">Surprise Me</h1>
+          <p class="surprise__subtitle">
+            Not sure what to play next? Let us pick something for
+            you from the catalog.
+          </p>
+          <button class="btn-primary" id="surpriseBtn" type="button">
+            <span class="btn-primary__icon">🎲</span>
+            Surprise me
+          </button>
+        </div>
+
+        <div class="suprise-result" id="surpriseResult"></div>
+      </section>
 
 
 
-      </main>
+    </main>
 
-      <footer class="site-footer" id="footer">
-        <!-- @include footer -->
-      </footer>
-    </div>
+    <footer class="site-footer" id="footer">
+      <!-- @include footer -->
+    </footer>
 
-    <script type="module" src="./js/main.js"></script>
-  </body>
+  <script type="module" src="./js/surprise-page.js"></script>
+</body>
+
 </html>

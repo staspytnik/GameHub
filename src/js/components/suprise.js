@@ -7,19 +7,26 @@ export function createGameCard(game) {
 }
 
 async function handleSurpriseClick() {
-  refs.surpriseBtn.disabled = true;
-  refs.featuredList.innerHTML = `<p class="suprise-status">Searching game...</p>`;
+  const { surpriseBtn, surpriseResult } = refs;
+  if (!surpriseBtn || !surpriseResult) return;
+
+  const surpriseSection = surpriseBtn.closest('.surprise');
+
+  surpriseBtn.disabled = true;
+  surpriseResult.innerHTML = `<p class="suprise-status">Searching game...</p>`;
 
   try {
     const randomGame = await fetchRandomGame();
     const gameDetails = await fetchGameById(randomGame.id);
-    refs.featuredList.innerHTML = createGameCard(gameDetails);
+    surpriseResult.innerHTML = createGameCard(gameDetails);
+    surpriseSection?.classList.add('surprise--has-game');
   } catch (error) {
     console.error(error);
-    refs.featuredList.innerHTML =
+    surpriseSection?.classList.remove('surprise--has-game');
+    surpriseResult.innerHTML =
       `<p class="suprise-status suprise-status--error">Failed to load game. Please try again.</p>`;
   } finally {
-    refs.surpriseBtn.disabled = false;
+    surpriseBtn.disabled = false;
   }
 }
 
