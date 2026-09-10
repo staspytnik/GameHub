@@ -6,9 +6,8 @@ dist
 
 # environment variables
 .env
-.env
-!.env
 .env.local
+.env.*.local
 
 # OS files
 .DS_Store
