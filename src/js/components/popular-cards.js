@@ -1,6 +1,6 @@
-import { fetchGames } from '../api/games-api.js';
-import { createGameCard } from './game-card.js'
-import { refs } from '../refs.js'
+import { fetchGames } from "../api/games-api.js";
+import { createGameCard } from "./game-card.js";
+import { refs } from "../refs.js";
 
 async function createPopularCards() {
   try {

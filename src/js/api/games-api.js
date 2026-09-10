@@ -11,21 +11,27 @@ const RAWG_API_KEY = import.meta.env.VITE_RAWG_API_KEY;
 
 export async function fetchGames(params = {}) {
   try {
-    const response = await fetch(`${RAWG_BASE_URL}/games?key=${RAWG_API_KEY}&dates=2019-09-01,2019-09-30&platforms=18,1,7`);
+    const quaryParams = new URLSearchParams(params);
+    const response = await fetch(
+      `${RAWG_BASE_URL}/games?key=${RAWG_API_KEY}&${quaryParams.toString()}`
+    );
 
     if (!response.ok) {
       throw new Error(`Error ${response.status}`);
     }
 
     const data = await response.json();
-
-    return data.results.map(game => ({
+    const results = data.results.map((game) => ({
       ...game,
-      released: game.released ? game.released.slice(0, 4) : '',
-      rating: game.rating ? game.rating.toFixed(1) : '0.0'
+      released: game.released ? game.released.slice(0, 4) : "",
+      rating: game.rating ? game.rating.toFixed(1) : "0.0",
     }));
+    if (params.page_size !== undefined) {
+      return { ...data, results };
+    }
+    return results;
   } catch (error) {
-    console.error('Помилка під час завантаження', error);
+    console.error("Помилка під час завантаження", error);
     return [];
   }
 }
@@ -57,6 +63,13 @@ export async function fetchGameScreenshots(id) {
  */
 export async function fetchGenres() {
   // TODO: implement request to `${RAWG_BASE_URL}/genres`
+  try {
+    const response = await fetch(`${RAWG_BASE_URL}/genres?key=${RAWG_API_KEY}`);
+    const genre = await response.json();
+    return genre.results;
+  } catch (error) {
+    alert(error);
+  }
 }
 
 /**

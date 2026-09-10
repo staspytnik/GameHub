@@ -21,7 +21,7 @@ function htmlIncludes() {
             throw new Error(`[html-includes] Section not found: ${filePath}`);
           }
           return fs.readFileSync(filePath, "utf-8").trim();
-        },
+        }
       );
     },
   };

@@ -1,7 +1,7 @@
 import { initEvents } from "./events.js";
 import "./components/hero-card.js";
 import "./components/featured-card.js";
-
+import "./components/allGames.js";
 
 import './components/popular-cards.js'
 
