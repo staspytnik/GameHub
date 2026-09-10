@@ -3,6 +3,7 @@ import "./components/hero-card.js";
 import "./components/featured-card.js";
 
 
+import './components/popular-cards.js'
 
 // Application entry point.
 function init() {
