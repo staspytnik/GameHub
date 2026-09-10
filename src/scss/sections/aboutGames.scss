@@ -35,8 +35,6 @@
     @media (min-width: 1280px) {
       width: 284px;
       height: 159px;
-
-
     }
   }
 
@@ -72,6 +70,12 @@
   .review-wrapper {
     height: 149px;
     margin-bottom: 40px;
+    @media (min-width: 768px) {
+      height: 128px;
+    }
+    @media (min-width: 1280px) {
+      height: 105px;
+    }
   }
 
   &__review {
@@ -121,6 +125,7 @@
       bottom: 16px;
       left: 16px;
       margin-bottom: 0;
+      font-size: 14px;
     }
   }
 
@@ -133,7 +138,6 @@
   }
 
   &__list--info {
-    width: 278px;
     height: 156px;
     display: flex;
     flex-direction: column;
@@ -163,6 +167,7 @@
     text-align: right;
     color: var(--color-grey-96);
     margin: 0;
+    margin-right: 20px;
   }
 }
 
