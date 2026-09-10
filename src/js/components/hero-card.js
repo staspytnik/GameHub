@@ -14,17 +14,17 @@ export function createGameCard(game) {
   return renderTemplate("heroCard", game);
 }
 
-const games = await fetchGames();
-const randomGames = games
-  .sort(() => {
-    return Math.random() - 0.5;
-  })
-  .slice(0, 4);
+if (refs.heroList) {
+  const games = await fetchGames();
+  const randomGames = games
+    .sort(() => {
+      return Math.random() - 0.5;
+    })
+    .slice(0, 4);
 
-console.log(games);
+  const gameCards = randomGames.map((game) => {
+    return createGameCard(game);
+  });
 
-const gameCards = randomGames.map((game) => {
-  return createGameCard(game);
-});
-
-refs.heroList.innerHTML = gameCards.join("");
+  refs.heroList.innerHTML = gameCards.join("");
+}

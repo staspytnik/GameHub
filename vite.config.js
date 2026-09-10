@@ -38,6 +38,12 @@ export default defineConfig({
   build: {
     outDir: "../dist",
     emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'src/index.html'),
+        surprise: path.resolve(__dirname, 'src/suprise.html'),
+      },
+    },
   },
   css: {
     preprocessorOptions: {

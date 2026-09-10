@@ -4,6 +4,9 @@
 /**
  * Attach all application-level event listeners.
  */
+import { initSuprise } from './components/suprise.js';
+
 export function initEvents() {
-  // TODO: bind search, filters, pagination, modal, and library events.
+  initSuprise();
+  // TODO: search, filters, pagination, modal, library events — по мере готовности
 }
