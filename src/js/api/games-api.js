@@ -1,13 +1,14 @@
 // RAWG Video Games Database API client.
 // https://api.rawg.io/docs/
 
-const RAWG_BASE_URL = 'https://api.rawg.io/api';
+const RAWG_BASE_URL = "https://api.rawg.io/api";
 const RAWG_API_KEY = import.meta.env.VITE_RAWG_API_KEY;
 
 /**
  * Fetch a paginated list of games.
  * @param {Object} [params] - query params (search, page, genres, platforms, etc.)
  */
+
 export async function fetchGames(params = {}) {
   try {
     const response = await fetch(`${RAWG_BASE_URL}/games?key=${RAWG_API_KEY}&dates=2019-09-01,2019-09-30&platforms=18,1,7`);
@@ -33,13 +34,19 @@ export async function fetchGames(params = {}) {
  * Fetch a single game by its id.
  * @param {number|string} id
  */
+
 export async function fetchGameById(id) {
   // TODO: implement request to `${RAWG_BASE_URL}/games/${id}`
+  const response = await fetch(
+    `${RAWG_BASE_URL}/games/${id}?key=${RAWG_API_KEY}`,
+  );
+  const game = await response.json();
+  return game;
 }
 
 /**
  * Fetch screenshots for a single game.
- * @param {number|string} id
+ * @param {number|string} id 
  */
 export async function fetchGameScreenshots(id) {
   // TODO: implement request to `${RAWG_BASE_URL}/games/${id}/screenshots`
@@ -57,6 +64,19 @@ export async function fetchGenres() {
  */
 export async function fetchPlatforms() {
   // TODO: implement request to `${RAWG_BASE_URL}/platforms`
+}
+
+export async function fetchRandomGame() {
+  const pageSize = 20;
+  const maxPage = 50;
+  const randomPage = Math.floor(Math.random() * maxPage) + 1;
+  const results = await fetchGames({ page: randomPage, page_size: pageSize });
+
+  if (!results?.length) {
+    throw new Error('No games returned');
+  }
+
+  return results[Math.floor(Math.random() * results.length)];
 }
 
 export { RAWG_BASE_URL, RAWG_API_KEY };
