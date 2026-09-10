@@ -18,29 +18,28 @@ export function createGameCard(game) {
   return renderTemplate("featuredCard", game);
 }
 
-const randomGame = await fetchGameById(Math.floor(Math.random() * 100) + 1);
+if (refs.featuredList) {
+  const randomGame = await fetchGameById(Math.floor(Math.random() * 100) + 1);
+  const gameCard = createGameCard(randomGame);
 
-console.log(randomGame);
+  refs.featuredList.innerHTML = gameCard;
 
-const gameCard = createGameCard(randomGame);
+  const addToLibraryButton = document.querySelector(".featured__button");
 
-refs.featuredList.innerHTML = gameCard;
+  addToLibraryButton?.addEventListener("click", () => {
+    const library = JSON.parse(localStorage.getItem("library")) || [];
 
-const addToLibraryButton = document.querySelector(".featured__button");
+    const isGameInLibrary = library.some((game) => game.id === randomGame.id);
 
-addToLibraryButton.addEventListener("click", () => {
-  const library = JSON.parse(localStorage.getItem("library")) || [];
+    if (isGameInLibrary) {
+      addToLibraryButton.textContent = "In Library";
+      return;
+    }
 
-  const isGameInLibrary = library.some((game) => game.id === randomGame.id);
+    library.push(randomGame);
 
-  if (isGameInLibrary) {
+    localStorage.setItem("library", JSON.stringify(library));
+
     addToLibraryButton.textContent = "In Library";
-    return;
-  }
-
-  library.push(randomGame);
-
-  localStorage.setItem("library", JSON.stringify(library));
-
-  addToLibraryButton.textContent = "In Library";
-});
+  });
+}

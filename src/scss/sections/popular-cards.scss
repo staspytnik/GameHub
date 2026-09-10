@@ -1,0 +1,57 @@
+.popular-games {
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    @media (min-width: 768px) {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    @media (min-width: 1280px) {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    &__topBar {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 24px;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 140%;
+        color: #f5f5f7;
+    }
+
+    &__all {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 143%;
+        text-align: center;
+        color: #8b5cf6;
+    }
+
+    &__list {
+        // display: flex;
+        // gap: 8px;
+        // flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        justify-items: center;
+        .game-card {
+            width: 100%;
+
+        }
+        .game-card__image {
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+    }
+}

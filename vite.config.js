@@ -21,7 +21,7 @@ function htmlIncludes() {
             throw new Error(`[html-includes] Section not found: ${filePath}`);
           }
           return fs.readFileSync(filePath, "utf-8").trim();
-        },
+        }
       );
     },
   };
@@ -39,7 +39,9 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, 'src/index.html'), library: path.resolve(__dirname, 'src/library.html'),
+        main: path.resolve(__dirname, 'src/index.html'),
+        surprise: path.resolve(__dirname, 'src/suprise.html'),
+        library: path.resolve(__dirname, 'src/library.html'),
       },
     },
   },
