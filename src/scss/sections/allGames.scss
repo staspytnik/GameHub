@@ -13,7 +13,8 @@
       justify-content: center;
     }
 
-    @media (min-width: 1280px) {}
+    @media (min-width: 1280px) {
+    }
   }
 
   &__title {
@@ -39,9 +40,11 @@
     line-height: 143%;
     color: var(--color-grey-61);
 
-    @media (min-width: 768px) {}
+    @media (min-width: 768px) {
+    }
 
-    @media (min-width: 1280px) {}
+    @media (min-width: 1280px) {
+    }
   }
 
   &__search {
@@ -53,9 +56,11 @@
     display: flex;
     align-items: center;
 
-    @media (min-width: 768px) {}
+    @media (min-width: 768px) {
+    }
 
-    @media (min-width: 1280px) {}
+    @media (min-width: 1280px) {
+    }
   }
 
   &__svg {
@@ -71,9 +76,11 @@
     border: none;
     outline: none;
 
-    @media (min-width: 768px) {}
+    @media (min-width: 768px) {
+    }
 
-    @media (min-width: 1280px) {}
+    @media (min-width: 1280px) {
+    }
   }
 
   &__input::placeholder {
@@ -82,9 +89,11 @@
     font-size: 14px;
     color: var(--color-grey-61);
 
-    @media (min-width: 768px) {}
+    @media (min-width: 768px) {
+    }
 
-    @media (min-width: 1280px) {}
+    @media (min-width: 1280px) {
+    }
   }
 
   &__list--categories {
@@ -92,17 +101,21 @@
     margin: 24px 0;
     flex-wrap: wrap;
 
-    @media (min-width: 768px) {}
+    @media (min-width: 768px) {
+    }
 
-    @media (min-width: 1280px) {}
+    @media (min-width: 1280px) {
+    }
   }
 
   &__items--categories {
     margin: 4px;
 
-    @media (min-width: 768px) {}
+    @media (min-width: 768px) {
+    }
 
-    @media (min-width: 1280px) {}
+    @media (min-width: 1280px) {
+    }
   }
 
   &__buttons {
@@ -121,28 +134,32 @@
     @media (min-width: 768px) {
       font-size: 14px;
       padding: 8px 16px;
-
     }
 
-    @media (min-width: 1280px) {}
+    @media (min-width: 1280px) {
+    }
 
     &.chosen {
       box-shadow: 0 0 14px 0 rgba(139, 92, 246, 0.35);
       background: var(--color-violet-66);
       color: var(--color-white-solid);
 
-      @media (min-width: 768px) {}
+      @media (min-width: 768px) {
+      }
 
-      @media (min-width: 1280px) {}
+      @media (min-width: 1280px) {
+      }
     }
 
     &:disabled {
       opacity: 0.3;
       cursor: not-allowed;
 
-      @media (min-width: 768px) {}
+      @media (min-width: 768px) {
+      }
 
-      @media (min-width: 1280px) {}
+      @media (min-width: 1280px) {
+      }
     }
   }
 

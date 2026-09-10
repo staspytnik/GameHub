@@ -1,4 +1,4 @@
-import { fetchGames, fetchGenres } from "../api/games-api.js";
+import { fetchGames, fetchGenres, fetchGameById } from "../api/games-api.js";
 import { createGameCard } from "./game-card.js";
 import {
   createPaginationState,
