@@ -25,6 +25,10 @@
       color: var(--color-text-secondary);
       line-height: 19px;
     }
+
+    &__add-icon {
+      color: var(--color-text-primary);
+    }
 }
 .library__button {
   display: flex;
@@ -32,6 +36,7 @@
   column-gap: var(--space-1);
   background-color: var(--color-primary);
   padding: 12px 20px;
+  color: var(--color-text-primary);
   border-radius: var(--radius-lg);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
