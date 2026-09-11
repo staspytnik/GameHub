@@ -49,6 +49,10 @@
             width: 100%;
         }
 
+
+        .is-active{
+            background-color: #8b5cf6;
+        }
         @media (min-width: 768px) {
             grid-template-columns: repeat(4, 1fr);
             gap: 16px;

@@ -1,4 +1,4 @@
-import { fetchGames, fetchGenres } from "../api/games-api.js";
+import { fetchGames, fetchGenres, fetchGameById } from "../api/games-api.js";
 import { createGameCard } from "./game-card.js";
 import {
   createPaginationState,
@@ -140,4 +140,25 @@ pagesWrap.addEventListener("click", async (e) => {
 
   pagination.page = page;
   await loadGames();
+});
+
+refs.gamesList.addEventListener("click", async (event) => {
+  const likeBtn = event.target.closest(".game-card__likeBtn");
+  if (!likeBtn) return;
+
+  const card = likeBtn.closest(".game-card");
+  const gameId = card.dataset.id;
+
+  const savedFavorites = JSON.parse(localStorage.getItem("library")) || [];
+
+  if (!savedFavorites.includes(gameId)) {
+    const gameCard = await fetchGameById(gameId);
+    savedFavorites.push(gameCard);
+    localStorage.setItem("library", JSON.stringify(savedFavorites));
+    likeBtn.classList.add("is-active");
+  } else {
+    const updatedFavorites = savedFavorites.filter((id) => id !== gameId);
+    localStorage.setItem("library", JSON.stringify(updatedFavorites));
+    likeBtn.classList.remove("is-active");
+  }
 });
