@@ -1,0 +1,100 @@
+<section class="gamepage__section">
+  <ul class="gamepage__section--list">
+    <li class="gamepage__section--list-item gamepage__section--list-item-1">
+      <a class="gamepage__section--list-item-link" href="index.html">
+        <img class="gamepage__section--list-item-link-icon" src="/images/arrow.svg" alt="arrow"> Back
+      </a>
+    </li>
+    <span class="gamepage__section--list-item-divider">/</span>
+    <li class="gamepage__section--list-item">
+      <a class="gamepage__section--list-item-link" href="index.html">Games</a>
+    </li>
+    <span class="gamepage__section--list-item-divider">/</span>
+    <li class="gamepage__section--list-item gamepage__section--list-item-action">
+      <a class="gamepage__section--list-item-link" href="index.html">{{genre}}</a>
+    </li>
+    <span class="gamepage__section--list-item-divider">/</span>
+    <li class="gamepage__section--list-item">
+      <span class="gamepage__section--list-item-link">{{name}}</span>
+    </li>
+  </ul>
+  <div class="gamepage__section--card">
+    <img class="gamepage__section--card-image" src="{{image}}" alt="{{name}}" />
+    <span class="card-info-wrap">
+      <h2 class="gamepage__section--card-title">{{name}}</h2>
+      <div class="info-wrapper">
+        <span class="gamepage__section--card-favourite">
+          <img src="/images/star.svg" alt="star" />{{rating}}
+        </span>
+        <span class="gamepage__section--card-genre">
+          {{#each genres}}
+            <h3 class="gamepage__section--card-genre-title">{{this}}</h3>
+          {{/each}}
+        </span>
+        <h3 class="gamepage__section--card-releaseDate">{{year}}</h3>
+      </div>
+      <span class="gamepage__section--card-supportedDevices">
+        {{#each platforms}}
+          <h3 class="gamepage__section--card-supportedDevices-title">{{this}}</h3>
+        {{/each}}
+      </span>
+      <p class="gamepage__section--card-description">{{description}}</p>
+      <div class="btn-wrapper">
+        <button class="gamepage__section--card-buttonLib" type="button">Add to Library</button>
+        <button class="gamepage__section--card-buttonFav" type="button">
+          <img src="/images/heart.svg" alt="heart" />
+        </button>
+      </div>
+    </span>
+  </div>
+</section>
+
+<section class="details">
+  <div class="container">
+    <div>
+      <div>
+        <h2 class="details__title">About the Game</h2>
+        <p class="details__description">{{description}}</p>
+      </div>
+      <div>
+        <h2 class="details__title">Screenshots</h2>
+        <ul class="details__list--screenshots">
+          {{#each screenshots}}
+            <li class="details__item">
+              <img src="{{this}}" alt="screenshot" class="details__screenshot" />
+            </li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+    <div class="details__box info">
+      <h3 class="details__heading">Game Info</h3>
+      <ul class="details__list--info">
+        <li class="details__item--info">
+          <h4 class="details__question">Developer</h4>
+          <p class="details__answer">{{developer}}</p>
+        </li>
+        <li class="details__item--info">
+          <h4 class="details__question">Publisher</h4>
+          <p class="details__answer">{{publisher}}</p>
+        </li>
+        <li class="details__item--info">
+          <h4 class="details__question">Release</h4>
+          <p class="details__answer">{{year}}</p>
+        </li>
+        <li class="details__item--info">
+          <h4 class="details__question">Genres</h4>
+          <p class="details__answer">{{genresText}}</p>
+        </li>
+        <li class="details__item--info">
+          <h4 class="details__question">Platforms</h4>
+          <p class="details__answer">{{platformsText}}</p>
+        </li>
+        <li class="details__item--info">
+          <h4 class="details__question">Rating</h4>
+          <p class="details__answer">{{rating}} / 5.0</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

@@ -9,21 +9,20 @@
 </head>
 
 <body>
-  <!-- <div class="container"> -->
   <header class="site-header" id="header">
     <!-- @include header -->
   </header>
 
   <main id="main">
+    <p class="game-page-status" data-game-status="">Loading the game...</p>
+    <div data-game-content="" hidden>
     <!-- @include gamepage -->
     <!-- @include aboutGames -->
+    </div>
+
   </main>
 
-  <footer class="site-footer" id="footer">
-  </footer>
-  <!-- </div> -->
-
-  <script type="module" src="./js/main.js"></script>
+  <script type='module' src='./js/game-page.js'></script>
 </body>
 
 </html>

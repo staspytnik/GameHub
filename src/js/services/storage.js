@@ -32,11 +32,26 @@ function saveLibrary(library) {
 }
 
 /**
+ * Check whether a game is already saved in the library.
+ * @param {number|string} id
+ */
+export function isInLibrary(id) {
+  return getLibrary().some((game) => String(game.id) === String(id));
+}
+
+/**
  * Add a game to the library.
  * @param {Object} game
+ * @returns {boolean} true when the game was added
  */
 export function addToLibrary(game) {
-  // TODO: implement (append game, avoid duplicates).
+  const library = getLibrary();
+  if (library.some((item) => String(item.id) === String(game.id))) {
+    return false;
+  }
+
+  saveLibrary([...library, game]);
+  return true;
 }
 
 /**

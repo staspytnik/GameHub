@@ -55,7 +55,21 @@ export async function fetchGameById(id) {
  * @param {number|string} id 
  */
 export async function fetchGameScreenshots(id) {
-  // TODO: implement request to `${RAWG_BASE_URL}/games/${id}/screenshots`
+  try {
+    const response = await fetch(
+      `${RAWG_BASE_URL}/games/${id}/screenshots?key=${RAWG_API_KEY}`,
+    );
+
+    if (!response.ok) {
+      throw new Error(`Error ${response.status}`);
+    } 
+
+    const data = await response.json();
+    return data.results ?? [];
+  } catch (error) {
+    console.error("Помилка під час завантаження скріншотів", error);
+    return [];
+  }
 }
 
 /**
