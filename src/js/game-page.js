@@ -35,7 +35,7 @@ async function initGamePage() {
       platformsText: platforms.join(", ") || "Unknown",
       year: game.released ? String(game.released).slice(0, 4) : "TBA",
       rating: Number(game.rating || 0).toFixed(1),
-      image: game.background_image || "/images/card-image-placeholder.png",
+      image: game.background_image || `${import.meta.env.BASE_URL}images/card-image-placeholder.png`,
       description: game.description_raw || "No description available.",
       screenshots: screenshotUrls,
       developer: game.developers?.[0]?.name || "Unknown",
