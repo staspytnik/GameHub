@@ -5,6 +5,7 @@ import {addAllCards, cards, renderGames} from "./services/library-cards.js";
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
 import {getLibrary} from "./services/storage.js";
+import {initGameNavigation} from "./game-navigation.js"
 
 const notyf = new Notyf({
     position: {
@@ -60,5 +61,7 @@ const switchTab = (event) => {
 }
 
 libraryFilters.addEventListener('click', switchTab);
+
+initGameNavigation()
 
 init()

@@ -3,13 +3,15 @@ import gameCardSource from "./game-card.hbs?raw";
 import gameHeroCard from "./hero-card.hbs?raw";
 import gameFeaturedCard from './featured-card.hbs?raw';
 import surpriseCardSource from './suprise-card.hbs?raw'
+import gameDetails from './game-details.hbs?raw'
 
 // Precompiled Handlebars templates, keyed by name.
 const templates = {
   gameCard: Handlebars.compile(gameCardSource), 
   heroCard: Handlebars.compile(gameHeroCard),
   featuredCard: Handlebars.compile(gameFeaturedCard),
-  surpriseCard: Handlebars.compile(surpriseCardSource)
+  surpriseCard: Handlebars.compile(surpriseCardSource),
+  gameDetails: Handlebars.compile(gameDetails),
 };
 
 /**
