@@ -48,3 +48,24 @@ VITE_RAWG_API_KEY=your_api_key_here
 ```
 
 The key is read at runtime via `import.meta.env.VITE_RAWG_API_KEY`. Never commit your real `.env` file.
+
+## Deploy (GitHub Pages)
+
+The production build is deployed automatically on every push to `master`.
+
+Live site: https://staspytnik.github.io/GameHub/
+
+### One-time GitHub setup
+
+1. **Pages source.** Repo **Settings → Pages → Source**: GitHub Actions.
+2. **Secrets.** Repo **Settings → Secrets and variables → Actions**, add the same keys as in `.env.example`:
+   - `VITE_RAWG_API_KEY`
+   - `VITE_FIREBASE_API_KEY`
+   - `VITE_FIREBASE_AUTH_DOMAIN`
+   - `VITE_FIREBASE_PROJECT_ID`
+   - `VITE_FIREBASE_STORAGE_BUCKET`
+   - `VITE_FIREBASE_MESSAGING_SENDER_ID`
+   - `VITE_FIREBASE_APP_ID`
+   - `VITE_FIREBASE_MEASUREMENT_ID`
+
+You can also run the **Deploy to GitHub Pages** workflow manually from the Actions tab.

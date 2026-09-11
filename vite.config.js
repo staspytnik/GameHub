@@ -6,6 +6,44 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const sectionsDir = path.resolve(__dirname, "src/html/sections");
 
+// GitHub Pages serves the site at https://<user>.github.io/GameHub/
+const base = process.env.GITHUB_ACTIONS ? "/GameHub/" : "/";
+
+function rewritePublicUrls(code) {
+  if (base === "/") return code;
+
+  const prefix = base.slice(0, -1);
+  const repo = prefix.slice(1);
+
+  return code.replace(
+    new RegExp(
+      `(?<!${repo})/(images/|index\\.html|library\\.html|suprise\\.html|game\\.html)`,
+      "g"
+    ),
+    `${prefix}/$1`
+  );
+}
+
+function prefixPublicUrls() {
+  return {
+    name: "prefix-public-urls",
+    transform(code, id) {
+      if (base === "/") return;
+      if (id.includes("node_modules")) return;
+      if (!/\.(js|hbs|scss|css|html)($|\?)/.test(id)) return;
+
+      const next = rewritePublicUrls(code);
+      return next === code ? undefined : { code: next, map: null };
+    },
+    transformIndexHtml: {
+      order: "post",
+      handler(html) {
+        return rewritePublicUrls(html);
+      },
+    },
+  };
+}
+
 // Build-time HTML includes: replaces `<!-- @include name -->` markers in
 // index.html with the contents of `src/html/sections/name.html`, so each
 // section stays in its own file without any runtime JS injection.
@@ -30,11 +68,13 @@ function htmlIncludes() {
 // Project source lives in `src/`, static assets in `public/`,
 // production build output goes to `dist/` at the project root.
 export default defineConfig({
+  base,
   root: "src",
   publicDir: "../public",
-  plugins: [htmlIncludes()],
+  plugins: [htmlIncludes(), prefixPublicUrls()],
   envDir: path.resolve(__dirname),
   build: {
+    target: "es2022",
     outDir: "../dist",
     emptyOutDir: true,
     rollupOptions: {

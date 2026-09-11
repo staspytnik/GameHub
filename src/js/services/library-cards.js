@@ -1,6 +1,7 @@
 import gameCardTemplate from "../templates/library-card.hbs?raw";
-import placeholderImage from '/images/card-image-placeholder.png'
 import Handlebars from "handlebars";
+
+const placeholderImage = `${import.meta.env.BASE_URL}images/card-image-placeholder.png`;
 
 export let cards = {}
 
